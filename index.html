@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Lymphatic System · Study Portfolio</title>
+    <title>Chapter 22a: The Lymphatic System - Complete Study Notes</title>
     <style>
         /* MOBILE-FIRST DESIGN - Optimized for phone screens */
         * {
@@ -14,51 +14,54 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: #f8fafc;
-            color: #1e293b;
-            line-height: 1.6;
+            background: #f5f7fa;
+            color: #1a2b3c;
+            line-height: 1.7;
+            font-size: 16px;
         }
 
-        /* Navigation - Simple hamburger menu for mobile */
+        /* Navigation Bar */
         .nav-bar {
-            background: #0f172a;
+            background: #0b1e2b;
             color: white;
             padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .logo {
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: #5ee0d4;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #6bc5c9;
+            letter-spacing: 0.5px;
         }
 
         .menu-btn {
             background: none;
             border: none;
             color: white;
-            font-size: 1.8rem;
+            font-size: 2rem;
             cursor: pointer;
             padding: 0 0.5rem;
+            line-height: 1;
         }
 
         .dropdown-menu {
             display: none;
-            background: #1e293b;
+            background: #1e3a4a;
             padding: 1rem;
-            border-radius: 0 0 12px 12px;
-            max-width: 600px;
+            border-radius: 0 0 16px 16px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -66,9 +69,10 @@
             color: white;
             text-decoration: none;
             display: block;
-            padding: 0.8rem;
-            border-bottom: 1px solid #334155;
-            font-size: 1rem;
+            padding: 0.9rem;
+            border-bottom: 1px solid #2c4e62;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
         .dropdown-menu a:last-child {
@@ -81,187 +85,209 @@
 
         /* Main Content Container */
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 1rem;
+            padding: 1.2rem;
         }
 
-        /* Cards - Perfect for mobile touch */
+        /* Content Cards */
         .card {
             background: white;
-            border-radius: 20px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+            border: 1px solid #e6edf2;
         }
 
-        /* Typography */
+        /* Typography - Keeping all original text */
         h1 {
-            font-size: 2rem;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+            color: #0b1e2b;
+            margin-bottom: 0.75rem;
             line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         h2 {
-            font-size: 1.5rem;
-            color: #0f172a;
-            margin: 1.5rem 0 1rem 0;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #5ee0d4;
+            font-size: 1.8rem;
+            color: #0b1e2b;
+            margin: 2rem 0 1.2rem 0;
+            padding-bottom: 0.6rem;
+            border-bottom: 4px solid #6bc5c9;
+            font-weight: 600;
         }
 
         h3 {
-            font-size: 1.2rem;
-            color: #0f172a;
-            margin: 1rem 0 0.5rem 0;
-        }
-
-        .accent {
-            color: #0d9488;
+            font-size: 1.4rem;
+            color: #0b1e2b;
+            margin: 1.8rem 0 0.8rem 0;
             font-weight: 600;
         }
 
-        .badge {
-            background: #5ee0d4;
-            color: #0f172a;
+        h4 {
+            font-size: 1.2rem;
+            color: #1e4a5f;
+            margin: 1.2rem 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #4a6572;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        /* Badges and highlights */
+        .pill {
+            background: #e1f0f2;
+            color: #0b1e2b;
             padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
             font-weight: 600;
             display: inline-block;
             margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #b3d4d9;
         }
 
-        /* Grid System - Mobile friendly */
-        .grid-2, .grid-3 {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .accent-text {
+            color: #1e7e8c;
+            font-weight: 600;
         }
 
-        @media (min-width: 480px) {
-            .grid-2 {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-            }
-            
-            .grid-3 {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-            }
-        }
-
-        /* Function Cards */
-        .function-card {
-            background: #f1f5f9;
+        .clinical-note {
+            background: #fef2e9;
+            border-left: 6px solid #e67e22;
+            padding: 1.5rem;
             border-radius: 16px;
-            padding: 1.2rem;
-            border-left: 4px solid #5ee0d4;
+            margin: 1.5rem 0;
+            font-weight: 500;
         }
 
-        .function-card h3 {
-            margin-top: 0;
-            color: #0d9488;
+        .diagram-placeholder {
+            background: linear-gradient(145deg, #d9e9f0, #c2dde8);
+            border: 3px dashed #2c7a8c;
+            border-radius: 24px;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            margin: 1.8rem 0;
+            color: #0b4e5c;
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: 500;
         }
 
-        /* Tables - Scroll horizontally on small screens */
+        /* Tables */
         .table-wrapper {
             overflow-x: auto;
-            margin: 1rem 0;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            margin: 1.8rem 0;
+            border-radius: 18px;
+            border: 1px solid #d0e0e8;
+            background: white;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 400px;
+            min-width: 600px;
+            font-size: 1rem;
         }
 
         th {
-            background: #0f172a;
+            background: #0b1e2b;
             color: white;
-            padding: 0.8rem;
+            padding: 1rem;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            text-align: left;
         }
 
         td {
-            padding: 0.8rem;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem;
+            border-bottom: 1px solid #dae8f0;
+            vertical-align: top;
         }
 
         tr:last-child td {
             border-bottom: none;
         }
 
-        /* Lists */
+        tr:nth-child(even) {
+            background: #f8fcff;
+        }
+
+        /* Lists - Preserving all bullet points */
         ul, ol {
-            padding-left: 1.5rem;
-            margin: 0.8rem 0;
+            padding-left: 2rem;
+            margin: 1.2rem 0;
         }
 
         li {
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.7;
         }
 
-        /* Diagram Placeholders */
-        .diagram-box {
-            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
-            border: 2px dashed #0d9488;
+        ul ul, ol ol {
+            margin: 0.5rem 0 0.5rem 1.5rem;
+        }
+
+        /* Definition boxes */
+        .term-box {
+            background: #f0f7fa;
+            padding: 1.2rem;
             border-radius: 16px;
-            padding: 2rem 1rem;
-            text-align: center;
-            margin: 1rem 0;
-            color: #115e59;
-            font-style: italic;
+            margin: 1.2rem 0;
+            border-left: 4px solid #6bc5c9;
         }
 
-        /* Quick revision cards */
-        .revision-card {
-            background: #0f172a;
-            color: white;
-            border-radius: 16px;
-            padding: 1rem;
-            text-align: center;
-            margin-bottom: 0.8rem;
-        }
-
-        .revision-card.light {
-            background: #f1f5f9;
-            color: #0f172a;
+        .term-box strong {
+            color: #1e5f6b;
+            font-size: 1.1rem;
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 2rem 1rem;
-            color: #64748b;
-            font-size: 0.9rem;
-            border-top: 1px solid #e2e8f0;
+            padding: 2.5rem 1rem;
+            color: #5a767f;
+            font-size: 0.95rem;
+            border-top: 2px solid #d0e2e8;
             margin-top: 2rem;
         }
 
-        /* Clinical notes highlight */
-        .clinical {
-            background: #fff1f0;
-            border-left: 4px solid #ef4444;
-            padding: 1rem;
-            border-radius: 12px;
-            margin: 1rem 0;
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: #0b1e2b;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border: 2px solid #6bc5c9;
         }
 
-        /* Touch-friendly buttons/links */
-        .touch-link {
-            padding: 0.8rem;
-            display: block;
-            color: #0d9488;
-            text-decoration: none;
-            font-weight: 500;
+        /* Print styles */
+        @media print {
+            .nav-bar, .menu-btn, .back-to-top, .footer {
+                display: none;
+            }
+            .card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                break-inside: avoid;
+            }
         }
     </style>
 </head>
@@ -270,279 +296,401 @@
     <!-- Navigation -->
     <div class="nav-bar">
         <div class="nav-container">
-            <span class="logo">LYMPHATIC · STUDY</span>
+            <span class="logo">CHAPTER 22a · LYMPHATIC SYSTEM</span>
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
         </div>
         <div class="dropdown-menu" id="menu">
-            <a href="#overview">Overview</a>
-            <a href="#vessels">Vessels</a>
+            <a href="#function">Function (Three Pillars)</a>
+            <a href="#anatomy-overview">Anatomy Overview</a>
+            <a href="#lymphatic-vessels">Lymphatic Vessels</a>
+            <a href="#lymph-flow">Mechanics of Lymph Flow</a>
             <a href="#lymphocytes">Lymphocytes</a>
-            <a href="#nodules">Nodules</a>
-            <a href="#organs">Organs</a>
-            <a href="#summary">Summary</a>
+            <a href="#lymphoid-nodules">Lymphoid Nodules</a>
+            <a href="#lymph-nodes">Lymph Nodes</a>
+            <a href="#thymus">Thymus</a>
+            <a href="#spleen">Spleen</a>
+            <a href="#summary-table">Summary Table</a>
+            <a href="#references">References</a>
         </div>
     </div>
 
     <div class="container">
 
-        <!-- TITLE SECTION -->
-        <div class="card" id="overview">
-            <h1>Chapter 22a<br>Lymphatic System</h1>
-            <p style="color: #475569; margin-bottom: 1.5rem;">A Visual Study Portfolio</p>
-            
-            <h2>The Three Pillars of Function</h2>
-            <div class="grid-3">
-                <div class="function-card">
-                    <h3>💧 Fluid Balance</h3>
-                    <p>Returns ~3 liters of interstitial fluid to blood daily. Maintains blood volume and pressure.</p>
-                </div>
-                <div class="function-card">
-                    <h3>🧈 Lipid Transport</h3>
-                    <p>Transports dietary fats and fat-soluble vitamins (A, D, E, K) from GI tract via <strong>lacteals</strong>.</p>
-                </div>
-                <div class="function-card">
-                    <h3>🛡️ Immunity</h3>
-                    <p>Houses lymphocytes and filters pathogens. First line of defense against invaders.</p>
-                </div>
-            </div>
-
-            <h2 style="margin-top: 2rem;">Anatomy Overview</h2>
-            <div class="diagram-box">
-                [ DIAGRAM: Lymphatic System Overview ]<br>
-                <span style="font-size: 0.9rem;">Vessels · Nodes · Spleen · Thymus</span>
-            </div>
-
-            <ul style="margin-top: 1rem;">
-                <li><span class="badge">Lymph</span> Fluid containing leukocytes, proteins, fats, microbes</li>
-                <li><span class="badge">Vessels</span> One-way system: capillaries → subclavian veins</li>
-                <li><span class="badge">Tissues</span> MALT (mucosa-associated) - diffuse and nodular forms</li>
-                <li><span class="badge">Organs</span> Encapsulated: Primary (bone marrow, thymus) + Secondary (nodes, spleen)</li>
-            </ul>
+        <!-- MAIN TITLE -->
+        <div class="card">
+            <h1>Chapter 22a:<br>The Lymphatic System</h1>
+            <p class="subtitle">Enhanced Study Notes · Complete Reference</p>
         </div>
 
-        <!-- VESSELS SECTION -->
-        <div class="card" id="vessels">
-            <h2>Lymphatic Vessels</h2>
+        <!-- FUNCTION SECTION -->
+        <div class="card" id="function">
+            <h2>The Function of the Lymphatic System (The "Three Pillars")</h2>
             
-            <h3>Lymphatic Capillaries</h3>
-            <p><strong>Location:</strong> Everywhere EXCEPT CNS, cartilage, cornea, bone, bone marrow, epidermis.</p>
+            <p>The overall function of the lymphatic system is threefold:</p>
             
-            <div class="grid-2">
-                <div>
-                    <h4>Unique Features:</h4>
-                    <ul>
-                        <li>✓ Blind-ended "pockets"</li>
-                        <li>✓ Large diameter, thin walls</li>
-                        <li>✓ Overlapping endothelial cells = one-way valves</li>
-                        <li>✓ Anchoring filaments prevent collapse</li>
-                        <li>✓ In GI tract = <span class="accent">LACTEALS</span></li>
-                    </ul>
-                </div>
-                <div class="diagram-box">
-                    [Capillary Structure]<br>Overlapping cells · Anchoring filaments
-                </div>
-            </div>
-
-            <h3 style="margin-top: 1.5rem;">Collecting Vessels</h3>
-            <p>Thinner walls than veins but <strong>MORE valves</strong> → beaded appearance.</p>
-
-            <h3>Lymphatic Trunks</h3>
-            <ul>
-                <li><strong>Lumbar trunks</strong> – Lower limbs, pelvis, kidneys</li>
-                <li><strong>Intestinal trunk</strong> – Digestive organs → Cisterna Chyli</li>
-                <li><strong>Bronchomediastinal/Jugular/Subclavian</strong> – Thorax, head/neck, upper limbs</li>
-            </ul>
-
-            <h3>Lymphatic Ducts</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr><th>Duct</th><th>Drains</th><th>Empties Into</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Thoracic (Left)</strong></td>
-                            <td>Body below diaphragm + left side head/neck/thorax + left upper limb</td>
-                            <td>Left subclavian + jugular junction</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Right Lymphatic</strong></td>
-                            <td>Right side head/neck/thorax + right upper limb</td>
-                            <td>Right subclavian + jugular junction</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3>The Pumps: How Lymph Flows</h3>
             <ol>
-                <li><strong>Skeletal Muscle Pump</strong> – Contraction squeezes vessels</li>
-                <li><strong>Respiratory Pump</strong> – Pressure changes in thorax/abdomen</li>
-                <li><strong>Pulse Pressure</strong> – Adjacent arteries compress vessels</li>
-                <li><strong>Smooth Muscle</strong> – Intrinsic contraction when stretched</li>
-                <li><strong>One-Way Valves</strong> – Ensure directional flow</li>
+                <li><strong>Maintain Blood Volume & Fluid Balance:</strong> It picks up excess interstitial fluid (about <strong>3 liters per day</strong>) and leaked plasma proteins from the interstitial environment and returns it to the bloodstream. This maintains blood volume and pressure. This process also promotes mixing of the ECF divisions (plasma and interstitial fluid) and enhances the delivery of substances to cells.</li>
+                
+                <li><strong>Transport Lipids:</strong> It transports dietary fats and fat-soluble vitamins (A, D, E, K) absorbed from the GI tract via specialized lymphatic capillaries called <strong>lacteals</strong>.</li>
+                
+                <li><strong>Immunity & Body Defense:</strong> It houses the cells, tissues, and organs responsible for defending the body against environmental threats (pathogens) and internal threats (e.g., cancer cells). The lymphatic capillaries intercept invading microbes when collecting interstitial fluid, which is then exposed to immune cells in the lymph nodes.</li>
             </ol>
+            
+            <div class="diagram-placeholder">
+                [ DIAGRAM: Overview of the Three Pillars - Fluid Balance, Lipid Transport, Immunity ]<br>
+                <span style="font-size: 1rem;">Lymphatic capillaries collecting interstitial fluid · Lacteals in GI tract · Lymph nodes filtering pathogens</span>
+            </div>
+        </div>
+
+        <!-- ANATOMY OVERVIEW SECTION -->
+        <div class="card" id="anatomy-overview">
+            <h2>Anatomy Overview: Key Components</h2>
+            
+            <p>The lymphatic system consists of lymph, lymphatic vessels, and lymphatic tissues/organs.</p>
+            
+            <div class="term-box">
+                <strong>· Lymph:</strong> The fluid of the lymphatic system.
+                <ul>
+                    <li><strong>Composition:</strong> Similar to plasma but with less protein. It contains water, electrolytes, waste products, and <strong>leukocytes (mostly lymphocytes)</strong>. It may also contain fats (making it appear milky, then called <strong>chyle</strong>) and microbes.</li>
+                </ul>
+            </div>
+            
+            <div class="term-box">
+                <strong>· Lymphatic Vessels (Lymphatics):</strong> A network of transport tubes.
+                <ul>
+                    <li><strong>Pathway:</strong> They begin blindly in the tissues as lymphatic capillaries and end at the subclavian veins, where lymph is returned to the bloodstream. Unlike blood vessels, this is a <strong>one-way system</strong>.</li>
+                </ul>
+            </div>
+            
+            <div class="term-box">
+                <strong>· Lymphatic Tissues:</strong> Collections of lymphocytes and other immune cells (macrophages, dendritic cells) in connective tissue. They <strong>do not</strong> have a connective tissue capsule.
+                <ul>
+                    <li><strong>Diffuse Lymphatic Tissue:</strong> Scattered lymphocytes in the mucous membranes lining the respiratory, digestive, urinary, and reproductive tracts. This is collectively called <strong>MALT (Mucosa-Associated Lymphatic Tissue)</strong>.
+                        <ul>
+                            <li><strong>Specific examples:</strong> <strong>BALT</strong> (Bronchus-Associated), <strong>GALT</strong> (Gut-Associated).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Lymphatic Nodules (Follicles):</strong> Dense, compact, but <strong>non-encapsulated</strong> aggregates of lymphocytes.
+                        <ul>
+                            <li><strong>Locations:</strong> Walls of the pharynx (tonsils), wall of the ileum (Peyer's Patches), appendix.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="term-box">
+                <strong>· Lymphatic Organs:</strong> Structures that <strong>are</strong> surrounded by a connective tissue capsule, separating them from neighboring tissues.
+                <ul>
+                    <li><strong>Primary Lymphatic Organs:</strong> Site where lymphocytes are produced and <strong>mature</strong>.
+                        <ul>
+                            <li><strong>Red Bone Marrow:</strong> Site of <strong>lymphopoiesis</strong> (production of lymphocytes). <strong>B-lymphocytes (B-cells) and NK cells mature here.</strong></li>
+                            <li><strong>Thymus:</strong> Site where <strong>T-lymphocytes (T-cells) mature.</strong></li>
+                        </ul>
+                    </li>
+                    <li><strong>Secondary Lymphatic Organs:</strong> Site where most immune responses occur; populated by mature, naive lymphocytes that encounter antigens.
+                        <ul>
+                            <li><strong>Lymph Nodes</strong></li>
+                            <li><strong>Spleen</strong></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="diagram-placeholder">
+                [ DIAGRAM: Lymphatic System Overview - Lymph, Vessels, Tissues (MALT), Primary Organs (Bone Marrow, Thymus), Secondary Organs (Nodes, Spleen) ]
+            </div>
+        </div>
+
+        <!-- LYMPHATIC VESSELS SECTION -->
+        <div class="card" id="lymphatic-vessels">
+            <h2>Lymphatic Vessels: Detailed Structure & Flow</h2>
+            
+            <p>The lymphatic vessels are found closely associated with blood vessels.</p>
+            
+            <h3>1. Lymphatic Capillaries (Terminal Lymphatics)</h3>
+            
+            <ul>
+                <li><strong>Location:</strong> Found everywhere in the body except for <strong>avascular tissues</strong> (CNS, cartilage, cornea, bone, bone marrow, epidermis).</li>
+                <li><strong>Function:</strong> Collect interstitial fluid. In the GI tract, these specialized capillaries are called <strong>LACTEALS</strong>.</li>
+                <li><strong>Structure:</strong> Highly permeable and unique compared to blood capillaries:
+                    <ul>
+                        <li><strong>Blind-ended "pockets."</strong></li>
+                        <li><strong>Larger diameter</strong> for less resistance.</li>
+                        <li><strong>Thinner walls</strong> with little to no basement membrane.</li>
+                        <li><strong>Endothelial cells overlap</strong> to form <strong>one-way minivalves</strong>. Fluid pressure from outside pushes the flap open; pressure from inside pushes it closed, preventing backflow.</li>
+                        <li><strong>Anchoring filaments</strong> tether the endothelial cells to surrounding connective tissue. This prevents the capillaries from collapsing when interstitial pressure rises.</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="diagram-placeholder">
+                [ DIAGRAM: Lymphatic Capillary Structure - Blind-ended, overlapping endothelial cells forming one-way valves, anchoring filaments to connective tissue ]
+            </div>
+            
+            <h3>2. Collecting Vessels</h3>
+            
+            <ul>
+                <li>Receive lymph from the capillaries.</li>
+                <li>Run together with arteries and veins, bound in the same CT sheath.</li>
+                <li>Have the same three tunics as veins (tunica intima, media, adventitia) but with <strong>thinner walls</strong> and <strong>more internal valves</strong>. The valves give the vessels a <strong>beaded appearance</strong>.</li>
+                <li><strong>Superficial Lymphatics:</strong> Subcutaneous (in skin) and in areolar CT of mucous and serous membranes.</li>
+                <li><strong>Deep Lymphatics:</strong> Larger vessels that accompany deep arteries and veins, supplying internal structures.</li>
+            </ul>
+            
+            <h3>3. Lymphatic Trunks & Ducts</h3>
+            
+            <p>Formed where large collecting vessels converge.</p>
+            
+            <h4>· Key Trunks:</h4>
+            <ul>
+                <li><strong>Lumbar Trunks (Right & Left):</strong> Drain lower limbs, pelvic viscera, and kidneys.</li>
+                <li><strong>Intestinal Trunk:</strong> Drains the digestive organs. It often joins with the lumbar trunks to form the <strong>Cisterna Chyli</strong> (a dilated sac at the inferior end of the thoracic duct).</li>
+                <li><strong>Bronchomediastinal, Subclavian, and Jugular Trunks (Right & Left):</strong> Drain deep thoracic structures, upper limbs, and head/neck.</li>
+            </ul>
+            
+            <h4>· Lymphatic Ducts:</h4>
+            
+            <div class="term-box">
+                <strong>Thoracic Duct (Left Lymphatic Duct):</strong>
+                <ul>
+                    <li><strong>Origin:</strong> Arises from the Cisterna Chyli (at L1/L2).</li>
+                    <li><strong>Pathway:</strong> Drains lymph from the entire body <strong>below the diaphragm</strong>, plus the <strong>left side</strong> of the head/neck/thorax and <strong>left upper limb</strong>.</li>
+                    <li><strong>Termination:</strong> Empties into the junction of the <strong>left internal jugular</strong> and <strong>left subclavian vein</strong>.</li>
+                </ul>
+            </div>
+            
+            <div class="term-box">
+                <strong>Right Lymphatic Duct:</strong>
+                <ul>
+                    <li><strong>Formation:</strong> Formed by the union of the <strong>right jugular, right subclavian, and right bronchomediastinal trunks</strong>.</li>
+                    <li><strong>Drainage:</strong> Drains lymph from the <strong>right side</strong> of the head/neck/thorax and <strong>right upper limb</strong>.</li>
+                    <li><strong>Termination:</strong> Empties into the junction of the <strong>right internal jugular</strong> and <strong>right subclavian vein</strong>.</li>
+                </ul>
+            </div>
+            
+            <div class="diagram-placeholder">
+                [ DIAGRAM: Lymphatic Ducts - Thoracic Duct (draining left side and lower body) and Right Lymphatic Duct (draining right upper quadrant) ]
+            </div>
+        </div>
+
+        <!-- LYMPH FLOW SECTION -->
+        <div class="card" id="lymph-flow">
+            <h2>The Mechanics of Lymph Flow (The "Pumps")</h2>
+            
+            <p>Lymph is a low-pressure fluid. Its movement relies on external forces:</p>
+            
+            <ol>
+                <li><strong>Skeletal Muscle Pump:</strong> Contraction of skeletal muscles squeezes the lymphatic vessels.</li>
+                <li><strong>Respiratory Pump:</strong> Pressure changes in the thoracic and abdominal cavities during breathing compress and draw lymph upward.</li>
+                <li><strong>Pulse Pressure:</strong> The pulsation of nearby arteries compresses the lymphatic vessels.</li>
+                <li><strong>Smooth Muscle in Vessels:</strong> The walls of larger lymphatic vessels contain smooth muscle that contracts rhythmically when stretched (intrinsic pump).</li>
+                <li><strong>One-Way Valves:</strong> Ensure lymph flows only toward the subclavian veins.</li>
+            </ol>
+            
+            <div class="diagram-placeholder">
+                [ DIAGRAM: Lymph Flow Mechanisms - Skeletal muscle compression, respiratory pressure changes, arterial pulsation, valves preventing backflow ]
+            </div>
         </div>
 
         <!-- LYMPHOCYTES SECTION -->
         <div class="card" id="lymphocytes">
-            <h2>Lymphocytes: The Immune Soldiers</h2>
+            <h2>Lymphocytes: The Key Players</h2>
             
-            <div class="grid-2">
-                <div class="function-card">
-                    <h3>T-Cells (80%)</h3>
-                    <p><strong>Mature:</strong> Thymus<br>
-                    <strong>Function:</strong> Cell-mediated immunity. Direct attack.<br>
-                    <span class="accent">Antigen-specific</span></p>
-                </div>
-                <div class="function-card">
-                    <h3>B-Cells (10-15%)</h3>
-                    <p><strong>Mature:</strong> Red Bone Marrow<br>
-                    <strong>Function:</strong> Humoral immunity → antibodies<br>
-                    <span class="accent">Antigen-specific</span></p>
-                </div>
-                <div class="function-card">
-                    <h3>NK Cells (5-10%)</h3>
-                    <p><strong>Mature:</strong> Red Bone Marrow<br>
-                    <strong>Function:</strong> Innate immunity. Viruses + cancer.<br>
-                    <span class="accent">NOT antigen-specific</span></p>
-                </div>
+            <p>We'll go through this in more detail when we cover the immune system. For now, recall that lymphocytes are the "soldiers" of the immune system.</p>
+            
+            <div class="term-box">
+                <strong>· T-lymphocytes (T-cells):</strong> (~80% of circulating lymphocytes)
+                <ul>
+                    <li><strong>Mature in:</strong> Thymus.</li>
+                    <li><strong>Function:</strong> Responsible for <strong>cell-mediated immunity</strong>. They directly attack infected or abnormal cells. They are <strong>antigen-specific</strong>.</li>
+                </ul>
             </div>
-
-            <h3>Lymphopoiesis</h3>
-            <p>Production from hematopoietic stem cells in red bone marrow:</p>
+            
+            <div class="term-box">
+                <strong>· B-lymphocytes (B-cells):</strong> (~10-15% of circulating lymphocytes)
+                <ul>
+                    <li><strong>Mature in:</strong> Red Bone Marrow.</li>
+                    <li><strong>Function:</strong> Responsible for <strong>humoral immunity</strong>. Upon activation, they differentiate into <strong>plasma cells</strong> that produce and secrete antibodies (immunoglobulins). They are <strong>antigen-specific</strong>.</li>
+                </ul>
+            </div>
+            
+            <div class="term-box">
+                <strong>· Natural Killer (NK) Cells:</strong> (~5-10% of circulating lymphocytes)
+                <ul>
+                    <li><strong>Mature in:</strong> Red Bone Marrow.</li>
+                    <li><strong>Function:</strong> Part of the innate immune system. They attack foreign cells, virus-infected cells, and cancer cells. They are <strong>not antigen-specific</strong>.</li>
+                </ul>
+            </div>
+            
+            <h3>Lymphopoiesis & Circulation:</h3>
+            
             <ul>
-                <li>Some stay in marrow → B-cells and NK cells</li>
-                <li>Some migrate to thymus → T-cells</li>
-                <li>Memory cells: last 4-20+ years</li>
+                <li><strong>Lymphopoiesis:</strong> Production of lymphocytes from <strong>hematopoietic stem cells</strong> in the red bone marrow.
+                    <ul>
+                        <li>Some stem cells remain in the bone marrow to produce B-cells and NK cells.</li>
+                        <li>Other lymphoid stem cells migrate to the thymus to mature into T-cells.</li>
+                    </ul>
+                </li>
+                <li><strong>Recirculation:</strong> Mature, naive lymphocytes constantly travel through the blood, lymph, and lymphatic tissues/organs, "patrolling" for antigens.</li>
+                <li><strong>Proliferation:</strong> When T and B-cells are activated by a specific antigen, they proliferate rapidly in the peripheral tissues.</li>
+                <li><strong>Memory Cells:</strong> Long-lived cells produced after an initial immune response. They provide long-term immunity (most last up to 4 years, some can last 20+ years).</li>
             </ul>
+            
+            <div class="diagram-placeholder">
+                [ DIAGRAM: Lymphocyte Development - Stem cells in bone marrow → B-cells and NK cells mature in marrow, T-cells migrate to thymus for maturation ]
+            </div>
         </div>
 
         <!-- LYMPHOID NODULES SECTION -->
-        <div class="card" id="nodules">
+        <div class="card" id="lymphoid-nodules">
             <h2>Lymphoid Nodules (Non-Encapsulated)</h2>
             
-            <div class="grid-2">
-                <div>
-                    <h3>Tonsils <span class="badge">Waldeyer's ring</span></h3>
-                    <ul>
-                        <li><strong>Pharyngeal</strong> (adenoids) – nasopharynx</li>
-                        <li><strong>Palatine</strong> (pair) – oral cavity</li>
-                        <li><strong>Lingual</strong> (pair) – base of tongue</li>
-                    </ul>
-                    <div class="clinical">
-                        ⚠️ Infection = <strong>tonsillitis</strong>
-                    </div>
-                </div>
-                <div>
-                    <h3>GALT</h3>
-                    <ul>
-                        <li><strong>Peyer's Patches</strong> – ileum wall</li>
-                        <li><strong>Appendix</strong> – high nodule concentration</li>
-                    </ul>
-                    <p><strong>MALT:</strong> Mucosa-associated lymphoid tissue (BALT in bronchi, GALT in gut)</p>
-                </div>
+            <p>These are loose CT dominated by lymphocytes and macrophages. They are not organs because they lack a CT capsule.</p>
+            
+            <h3>· Tonsils:</h3>
+            <p>Large nodules in a ring around the pharynx (Waldeyer's tonsillar ring) to intercept inhaled and ingested pathogens.</p>
+            <ul>
+                <li><strong>Pharyngeal tonsil</strong> (adenoids) – nasopharynx.</li>
+                <li><strong>Palatine tonsils</strong> (pair) – posterolateral oral cavity. <strong>(These are the ones most commonly referred to as "tonsils")</strong>.</li>
+                <li><strong>Lingual tonsils</strong> (pair) – base of tongue.</li>
+                <li><strong>Disorder:</strong> Infection and swelling is called <strong>tonsillitis</strong>.</li>
+            </ul>
+            
+            <h3>· Peyer's Patches:</h3>
+            <p>Aggregated lymphoid nodules in the wall of the ileum (small intestine).</p>
+            
+            <h3>· Appendix:</h3>
+            <p>A tubular offshoot of the cecum containing a high concentration of lymphoid nodules.</p>
+            
+            <h3>· Note:</h3>
+            <p>Peyer's Patches and the appendix are collectively called <strong>GALT (Gut-Associated Lymphoid Tissue)</strong>.</p>
+            
+            <div class="diagram-placeholder">
+                [ DIAGRAM: Lymphoid Nodules Locations - Tonsils (pharyngeal, palatine, lingual), Peyer's Patches in ileum, Appendix ]
             </div>
         </div>
 
-        <!-- LYMPHATIC ORGANS SECTION -->
-        <div class="card" id="organs">
+        <!-- LYMPHATIC ORGANS - LYMPH NODES -->
+        <div class="card" id="lymph-nodes">
             <h2>Lymphatic Organs (Encapsulated)</h2>
-
-            <h3>1. Lymph Nodes: The Filters</h3>
-            <div class="grid-2">
-                <div>
-                    <p><strong>Function:</strong> Cleanse lymph, activate T & B-cells</p>
-                    <p><strong>Structure:</strong></p>
-                    <ul>
-                        <li>CT capsule with trabeculae</li>
-                        <li>Hilus: blood vessels + efferent exit</li>
-                        <li>Afferent enter on convex side (more inlets = pressure!)</li>
-                    </ul>
-                    <p><strong>Flow:</strong> Afferent → subcapsular sinus → cortex (B-cells) → paracortex (T-cells) → medulla → efferent</p>
-                </div>
-                <div class="diagram-box">
-                    [Lymph Node Structure]<br>Cortex · Paracortex · Medulla
-                </div>
+            
+            <p>The lymphatic organs are the lymph nodes, thymus, and spleen.</p>
+            
+            <h3>1. Lymph Nodes (The "Filters")</h3>
+            
+            <h4>· Function:</h4>
+            <p>To <strong>cleanse lymph</strong> and facilitate immune surveillance by activating T & B-cells.</p>
+            
+            <h4>· Structure:</h4>
+            <ul>
+                <li><strong>CT Capsule:</strong> Dense connective tissue surrounds the organ.</li>
+                <li><strong>Trabeculae:</strong> Capsular fibers extend inward, providing internal support.</li>
+                <li><strong>Hilus:</strong> The indented region on one side where blood vessels and nerves enter, and <strong>efferent lymphatic vessels</strong> exit.</li>
+                <li><strong>Afferent Lymphatic Vessels:</strong> Enter on the convex side (opposite the hilus). There are <strong>more afferent than efferent vessels</strong>, which slows lymph flow and builds pressure, forcing it through the node tissue.</li>
+            </ul>
+            
+            <h4>· Internal Anatomy & Flow:</h4>
+            <ol>
+                <li>Lymph enters via <strong>afferent vessels</strong> -> flows into the <strong>subcapsular sinus</strong>.</li>
+                <li><strong>Cortex (Outer):</strong> Contains <strong>B-cells</strong> organized into follicles, some with <strong>germinal centers</strong> (where B-cells proliferate upon activation).</li>
+                <li><strong>Paracortex (Deep Cortex):</strong> Contains <strong>T-cells</strong> and dendritic cells.</li>
+                <li><strong>Medulla (Inner):</strong> Contains <strong>B-cells</strong>, macrophages, and plasma cells in medullary cords.</li>
+                <li>Lymph seeps through medullary sinuses -> exits at the hilus via <strong>efferent vessels</strong>.</li>
+            </ol>
+            
+            <h4>· Cellular Action:</h4>
+            <p>Fixed <strong>macrophages</strong> line the sinuses and phagocytize microbes, debris, and dead cells. <strong>Dendritic cells</strong> present antigens to T-cells. If an antigen is detected, an immune response is initiated.</p>
+            
+            <h4>· Major Clusters:</h4>
+            <p>Lymph nodes are clustered in strategic areas to filter lymph before it returns to blood. Key groups include:</p>
+            <ul>
+                <li><strong>Cervical nodes</strong> (head/neck)</li>
+                <li><strong>Axillary nodes</strong> (breast, upper limb) - <strong>critical for breast cancer staging</strong></li>
+                <li><strong>Inguinal nodes</strong> (lower limb, genitals)</li>
+                <li><strong>Mesenteric nodes</strong> (along the digestive tract)</li>
+                <li><strong>Tracheobronchial nodes</strong> (around airways to lungs)</li>
+            </ul>
+            
+            <div class="clinical-note">
+                <strong>· Note:</strong> When someone says they have "swollen glands", they are technically wrong. They have swollen lymph nodes (<strong>lymphadenitis</strong>).
             </div>
-            <p><strong>Major clusters:</strong> Cervical · Axillary · Inguinal · Mesenteric · Tracheobronchial</p>
-            <div class="clinical">
-                ⚠️ "Swollen glands" = swollen LYMPH NODES (lymphadenitis)
-            </div>
-
-            <h3 style="margin-top: 1.5rem;">2. Thymus: The Training Ground</h3>
-            <div class="grid-2">
-                <div>
-                    <p><strong>Location:</strong> Superior mediastinum, above heart</p>
-                    <p><strong>Function:</strong> T-cell maturation</p>
-                    <p><strong>Active:</strong> Children up to age 2, then <strong>involution</strong></p>
-                    <p><strong>Structure:</strong> Capsule → septae → lobules (cortex + medulla)</p>
-                    <p><strong>Hormones:</strong> Thymosin, thymopoietin, thymulin</p>
-                </div>
-                <div class="diagram-box">
-                    [Thymus Lobule]<br>Blood-thymus barrier
-                </div>
-            </div>
-
-            <h3 style="margin-top: 1.5rem;">3. Spleen: The Blood Filter</h3>
-            <div class="grid-2">
-                <div>
-                    <p><strong>Location:</strong> Left side, lateral to stomach</p>
-                    <p><strong>Functions:</strong></p>
-                    <ul>
-                        <li>Filters blood (removes old RBCs, debris)</li>
-                        <li>Immune response to blood antigens</li>
-                        <li>Recycles iron (Fe++)</li>
-                        <li>Stores platelets</li>
-                        <li>Hematopoiesis in fetus (can resume in severe anemia)</li>
-                    </ul>
-                </div>
-                <div class="diagram-box">
-                    [Spleen]<br>White pulp · Red pulp
-                </div>
-            </div>
-            <p><strong>White pulp:</strong> Lymphocytes around arteries (immune surveillance)<br>
-            <strong>Red pulp:</strong> Venous sinusoids + cords (RBC filtration)</p>
-            <p><strong>Pathway:</strong> Splenic artery → trabecular arteries → central arteries (white pulp) → capillaries → red pulp → trabecular veins → splenic vein</p>
-            <div class="clinical">
-                ⚠️ Enlargement = splenomegaly. Removal = splenectomy. Can live without it but higher infection risk.
+            
+            <div class="diagram-placeholder">
+                [ DIAGRAM: Lymph Node Structure - Capsule, trabeculae, hilus, afferent vessels (convex side), efferent vessels (at hilus), cortex (B-cell follicles), paracortex (T-cells), medulla, subcapsular sinus ]
             </div>
         </div>
 
-        <!-- SUMMARY SECTION -->
-        <div class="card" id="summary">
-            <h2>Summary Comparison</h2>
+        <!-- THYMUS SECTION -->
+        <div class="card" id="thymus">
+            <h3>2. Thymus (The "Training Ground")</h3>
+            
+            <h4>· Location:</h4>
+            <p>Superior mediastinum, posterior to the sternum and anterior to the heart.</p>
+            
+            <h4>· Function:</h4>
+            <p>Site of <strong>T-cell maturation</strong>. It is most active in children up until about age 2, and then gradually undergoes <strong>involution</strong> (atrophy), being replaced by adipose and areolar tissue.</p>
+            
+            <h4>· Structure:</h4>
+            <ul>
+                <li><strong>CT Capsule:</strong> Extends inward to form two lobes, and then finer <strong>septae</strong> that divide the lobes into <strong>lobules</strong>.</li>
+                <li><strong>Lobules:</strong> Each contains an outer <strong>cortex</strong> and inner <strong>medulla</strong>.</li>
+            </ul>
+            
+            <h4>· Histology & Function:</h4>
+            <ul>
+                <li>The stroma (support structure) is made of <strong>reticular epithelial cells</strong> (not reticular fibers), which are unique to the thymus.</li>
+                <li><strong>Cortex:</strong> Site of rapid T-cell proliferation and <strong>positive selection</strong> (testing if they can recognize self-MHC). Immature T-cells here are protected from blood-borne antigens by the <strong>blood-thymus barrier</strong>.</li>
+                <li><strong>Medulla:</strong> Site of <strong>negative selection</strong> (testing if they react to self-antigens). T-cells that pass both tests mature here. They then leave the thymus via medullary blood vessels to seed other lymphatic tissues.</li>
+                <li><strong>Hormones:</strong> Reticular epithelial cells secrete <strong>thymic hormones</strong> (thymosin, thymopoietin, thymulin), which are essential for the maturation process.</li>
+            </ul>
+            
+            <div class="diagram-placeholder">
+                [ DIAGRAM: Thymus Structure - Two lobes, septae dividing into lobules, each lobule showing outer cortex and inner medulla, blood-thymus barrier in cortex ]
+            </div>
+        </div>
+
+        <!-- SPLEEN SECTION -->
+        <div class="card" id="spleen">
+            <h3>3. Spleen (The "Blood Filter")</h3>
+            
+            <h4>· Location:</h4>
+            <p>Left, lateral to the stomach, protected by ribs 9-11.</p>
+            
+            <h4>· Function:</h4>
+            <ul>
+                <li><strong>Filters Blood:</strong> Cleanses blood of aged cells, platelets, and debris.</li>
+                <li><strong>Immune Response:</strong> Initiates immune responses against blood-borne antigens.</li>
+                <li><strong>Iron Recycling:</strong> Macrophages phagocytize old RBCs and recycle the iron (Fe++) for new hemoglobin synthesis.</li>
+                <li><strong>Hematopoiesis:</strong> Site of blood cell production in the fetus; can resume this role in adults during extreme anemia (<strong>extramedullary hematopoiesis</strong>).</li>
+                <li><strong>Blood Reservoir:</strong> Stores platelets and some RBCs.</li>
+            </ul>
+            
+            <h4>· Structure & Circulation:</h4>
+            <ul>
+                <li><strong>CT Capsule & Trabeculae:</strong> Similar to lymph nodes.</li>
+                <li><strong>Hilus:</strong> Where splenic artery and vein connect.</li>
+                <li><strong>White Pulp:</strong> Lymphocytes and macrophages surrounding central arteries (looks like white islands on a slide). This is where immune surveillance happens.</li>
+                <li><strong>Red Pulp:</strong> Consists of venous sinusoids and splenic cords (cords of Billroth) containing RBCs and macrophages. This is where old RBCs are removed.</li>
+            </ul>
+            
+            <h4>· Pathway:</h4>
+            <p>Splenic artery -> trabecular arteries -> central arteries (surrounded by <strong>white pulp</strong>) -> capillaries -> <strong>red pulp</strong> (cords & sinusoids) -> trabecular veins -> splenic vein.</p>
+            
+            <h4>· Clinical Note:</h4>
+            <p>Enlargement is called <strong>splenomegaly</strong> (caused by mono, TB, leukemia). A ruptured spleen causes life-threatening internal hemorrhage and is often removed (<strong>splenectomy</strong>). You can live without a spleen (functions are taken over by the liver and red bone marrow), but the individual has a higher risk for bacterial infection.</p>
+            
+            <div class="diagram-placeholder">
+                [ DIAGRAM: Spleen Structure - Capsule, hilus, white pulp (lymphocytes around central arteries), red pulp (sinusoids and cords), trabeculae ]
+            </div>
+        </div>
+
+        <!-- SUMMARY TABLE SECTION -->
+        <div class="card" id="summary-table">
+            <h2>Summary Table: Lymph Nodes vs. Thymus vs. Spleen</h2>
             
             <div class="table-wrapper">
                 <table>
                     <thead>
-                        <tr><th>Feature</th><th>Node</th><th>Thymus</th><th>Spleen</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Function</td><td>Filters LYMPH</td><td>Matures T-cells</td><td>Filters BLOOD</td></tr>
-                        <tr><td>Fluid</td><td>Lymph</td><td>None</td><td>Blood</td></tr>
-                        <tr><td>Capsule</td><td>✓</td><td>✓</td><td>✓</td></tr>
-                        <tr><td>Unique</td><td>Afferent/efferent</td><td>Blood-thymus barrier</td><td>Red/white pulp</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3 style="margin-top: 1.5rem;">Quick Revision Cards</h3>
-            <div class="grid-2">
-                <div class="revision-card">3 Main Functions<br>💧🧈🛡️</div>
-                <div class="revision-card light">Primary Organs<br>Bone Marrow · Thymus</div>
-                <div class="revision-card light">Secondary Organs<br>Nodes · Spleen</div>
-                <div class="revision-card">Key Ducts<br>Thoracic · Right</div>
-                <div class="revision-card">Lymph Composition<br>Water, WBCs, proteins</div>
-                <div class="revision-card light">Cells to Know<br>T, B, NK, Macrophages</div>
-            </div>
-        </div>
-
-        <!-- REFERENCES -->
-        <div class="card">
-            <h2>References</h2>
-            <ul style="font-size: 0.9rem;">
-                <li>Marieb, E. N. (2006). <em>Essentials of human anatomy & physiology</em> (8th ed.). Pearson.</li>
-                <li>Martini, F., & Ober, W. C. (2006). <em>Fundamentals of anatomy & physiology</em> (7th ed.). Pearson.</li>
-            </ul>
-           
+                        <tr>
+                            <th>Feature</th>
+                            <
