@@ -3,489 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lymphatic Q&A · 100 questions (revised)</title>
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Defence mechanisms · 100 short answer Qs (5–10 marks)</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
-
         body {
-            background: linear-gradient(165deg, #ece5ff 0%, #d9cef2 100%);
-            min-height: 100vh;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: #f4f7fc;
+            color: #0a2a44;
             padding: 2rem 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
-
-        .wrapper {
+        .container {
             max-width: 1100px;
-            width: 100%;
+            margin: 0 auto;
         }
-
-        /* header with glass effect */
-        .glass-header {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 40px;
-            padding: 2rem 2.5rem;
-            box-shadow: 0 25px 40px -15px #6e4e9e60;
-            border: 1px solid rgba(255,255,255,0.5);
-            margin-bottom: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .title h1 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            background: linear-gradient(140deg, #2d1a4e, #6d41b0);
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            background: linear-gradient(140deg, #123456, #1f6692);
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
+            margin-bottom: 0.25rem;
         }
-
-        .title p {
-            color: #432c68;
-            font-weight: 500;
-            margin-top: 5px;
-        }
-
-        .hundred-badge {
-            background: #7c4fc9;
-            color: white;
-            border-radius: 60px;
-            padding: 10px 28px;
-            font-weight: 600;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 16px 24px -8px #ae90e6;
-        }
-
-        .stat-row {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .pill {
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(4px);
-            border-radius: 60px;
-            padding: 0.6rem 1.6rem;
-            font-weight: 500;
-            color: #2f1e4b;
-            box-shadow: 0 6px 14px rgba(129, 91, 189, 0.2);
-            border: 1px solid rgba(255,255,255,0.6);
-        }
-
-        .pill i {
-            color: #6a44b0;
-            margin-right: 8px;
-        }
-
-        /* section tabs */
-        .tab-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin: 2rem 0 1.5rem;
-            justify-content: center;
-        }
-
-        .tab {
-            background: rgba(255,255,255,0.45);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255,255,255,0.8);
-            padding: 0.8rem 1.6rem;
-            border-radius: 50px;
-            font-weight: 600;
-            color: #301d52;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .tab i {
-            margin-right: 8px;
-            color: #6f45b5;
-        }
-
-        .tab.active {
-            background: #7e57c2;
-            color: white;
-            border-color: #7e57c2;
-            box-shadow: 0 12px 22px -10px #9570d4;
-        }
-
-        .tab.active i {
-            color: white;
-        }
-
-        /* search */
-        .search-box {
-            background: white;
-            border-radius: 60px;
-            display: flex;
-            align-items: center;
-            padding: 0.5rem 1rem 0.5rem 2rem;
-            max-width: 360px;
-            margin: 0 auto 2rem auto;
-            border: 1px solid #d1bcf5;
-        }
-
-        .search-box i {
-            color: #987bcf;
+        .subhead {
             font-size: 1.2rem;
+            color: #2c5778;
+            border-left: 6px solid #1f6aa5;
+            padding-left: 1.4rem;
+            margin: 1rem 0 2rem 0;
         }
-
-        .search-box input {
-            border: none;
-            background: transparent;
-            padding: 0.7rem 0.7rem;
-            width: 100%;
-            outline: none;
-            font-size: 1rem;
+        .mark-badge {
+            background: #d1e0f5;
+            color: #113355;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-right: 0.8rem;
         }
-
-        /* question cards */
-        .questions-grid {
+        .question-grid {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 1.3rem;
         }
-
-        .q-card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 1.3rem 2rem;
-            border: 1px solid rgba(255,255,255,0.8);
-            box-shadow: 0 16px 28px -16px #735ea8;
-            transition: 0.15s;
+        .q-item {
+            background: white;
+            border-radius: 22px;
+            padding: 1.3rem 1.8rem;
+            box-shadow: 0 6px 16px rgba(0, 30, 60, 0.06);
+            border: 1px solid #dbe4ed;
+            transition: 0.1s;
         }
-
-        .q-card:hover {
-            background: rgba(255,255,255,0.92);
-            transform: scale(1.005);
+        .q-item:hover {
+            border-left: 6px solid #1f6aa5;
+            background: #fdfdfd;
         }
-
-        .q-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            cursor: pointer;
-        }
-
-        .num {
-            background: #ded1fd;
-            color: #2c194f;
-            font-weight: 700;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: inset 0 -2px 0 #b49cf0;
-        }
-
-        .q-text {
+        .question-text {
             font-weight: 600;
             font-size: 1.1rem;
-            color: #1a0f2f;
-            flex: 1;
+            color: #00263b;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
         }
-
-        .toggle-icon {
-            color: #8c6bcb;
-            font-size: 1.2rem;
-            transition: 0.2s;
+        .answer {
+            background: #ecf3fb;
+            padding: 0.9rem 1.3rem;
+            border-radius: 18px;
+            color: #014175;
+            font-weight: 500;
+            border-left: 5px solid #2670b0;
+            margin-top: 0.3rem;
+            line-height: 1.6;
         }
-
-        .answer-box {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background: #f3ecff;
-            border-radius: 22px;
-            margin-top: 0;
+        .answer strong {
+            color: #0a395e;
         }
-
-        .answer-box.show {
-            max-height: 1000px;
-            margin-top: 1.3rem;
-            padding: 1.6rem 2rem;
-            border: 1px solid #cdb6fc;
+        .index-num {
+            display: inline-block;
+            background: #1f4662;
+            color: white;
+            font-weight: 600;
+            width: 32px;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-right: 12px;
         }
-
-        .answer-inner {
-            color: #271d3c;
-            line-height: 1.65;
+        hr {
+            margin: 2rem 0 1rem;
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, #ccc, #fff);
         }
-
-        .answer-inner strong {
-            color: #5f3ca0;
-        }
-
-        .fa-chevron-down {
-            transition: transform 0.25s;
-        }
-
-        .rotated {
-            transform: rotate(180deg);
-        }
-
         .footer {
             text-align: center;
-            margin-top: 3rem;
-            color: #3f2b60;
-            font-weight: 500;
+            color: #4f6f8f;
+            margin-top: 2.5rem;
         }
     </style>
 </head>
 <body>
-<div class="wrapper">
-    <!-- header -->
-    <div class="glass-header">
-        <div class="title">
-            <h1><i class="fas fa-shield-heart" style="color:#7c52c2; margin-right:14px;"></i>Lymphatic 100</h1>
-            <p><i class="fas fa-pen"></i> 100 structured questions · revised (disorders trimmed to 20, new topics added)</p>
-        </div>
-        <div class="hundred-badge">
-            <i class="fas fa-check-double"></i> 100 Q&A
-        </div>
-    </div>
+<div class="container">
+    <h1>🛡️ defence mechanisms · 2026</h1>
+    <div class="subhead">100 short‑answer questions (5–10 marks each) · full answers inline · nursing focus</div>
 
-    <!-- stats -->
-    <div class="stat-row">
-        <span class="pill"><i class="fas fa-droplet"></i> functions · structure</span>
-        <span class="pill"><i class="fas fa-sitemap"></i> organs · physiology</span>
-        <span class="pill"><i class="fas fa-heartbeat"></i> clinical (20)</span>
+    <div class="question-grid">
+        <!-- 1-20 foundation & definitions (5-10 marks) -->
+        <div class="q-item"><span class="index-num">1</span><div class="question-text"><span class="mark-badge">8 marks</span>Define defence mechanisms. Explain their key characteristics.</div><div class="answer"><strong>Answer:</strong> Defence mechanisms are unconscious psychological strategies used to reduce anxiety, internal conflict, and emotional distress. Characteristics: (1) operate unconsciously, (2) protect the ego, (3) reduce anxiety, (4) distort reality to varying degrees.</div></div>
+        <div class="q-item"><span class="index-num">2</span><div class="question-text"><span class="mark-badge">5 marks</span>Who first described defence mechanisms, and who later expanded the work?</div><div class="answer"><strong>Answer:</strong> Sigmund Freud first described them; Anna Freud later expanded and systematised the concept of defence mechanisms.</div></div>
+        <div class="q-item"><span class="index-num">3</span><div class="question-text"><span class="mark-badge">7 marks</span>Why is understanding defence mechanisms important in nursing practice?</div><div class="answer"><strong>Answer:</strong> Nurses care for patients facing chronic illness, trauma, pain, loss. Understanding defence mechanisms helps nurses avoid misinterpreting behaviour, improve therapeutic communication, reduce conflict, promote coping, and support mental health.</div></div>
+        <div class="q-item"><span class="index-num">4</span><div class="question-text"><span class="mark-badge">6 marks</span>List and briefly describe the four levels of defence mechanisms.</div><div class="answer"><strong>Answer:</strong> (1) Primitive – highly distorted reality (e.g., psychosis‑level denial). (2) Immature – common in adolescents (e.g., acting out). (3) Neurotic – common in adults (e.g., repression). (4) Mature – healthy coping (e.g., sublimation).</div></div>
+        <div class="q-item"><span class="index-num">5</span><div class="question-text"><span class="mark-badge">5 marks</span>Give an example of a primitive defence and explain why it is considered primitive.</div><div class="answer"><strong>Answer:</strong> Psychosis‑level denial – the individual completely rejects reality despite clear evidence. It is primitive because reality is extremely distorted, often seen in severe psychiatric conditions.</div></div>
+        <div class="q-item"><span class="index-num">6</span><div class="question-text"><span class="mark-badge">5 marks</span>What is the difference between suppression and repression? Provide an example of each.</div><div class="answer"><strong>Answer:</strong> Suppression = conscious decision to postpone dealing with an emotion (e.g., “I’ll think about this after surgery”). Repression = unconscious blocking of painful thoughts (e.g., cannot recall traumatic ICU experience).</div></div>
+        <div class="q-item"><span class="index-num">7</span><div class="question-text"><span class="mark-badge">8 marks</span>Define denial. Describe appropriate nursing interventions for a patient using denial.</div><div class="answer"><strong>Answer:</strong> Denial = refusing to accept reality/facts. Nursing: do not confront aggressively; provide factual information gradually; allow time for adjustment; support emotional processing; avoid reinforcing false beliefs but gently introduce reality.</div></div>
+        <div class="q-item"><span class="index-num">8</span><div class="question-text"><span class="mark-badge">8 marks</span>Explain projection with a clinical example. How should the nurse respond?</div><div class="answer"><strong>Answer:</strong> Projection = attributing one’s own unacceptable feelings to another. Example: patient afraid of surgery says, “You nurses seem nervous about my condition.” Nursing: respond calmly, do not become defensive, clarify feelings gently (“it sounds like you might be feeling anxious”).</div></div>
+        <div class="q-item"><span class="index-num">9</span><div class="question-text"><span class="mark-badge">7 marks</span>Define displacement and give a typical healthcare example. What is the nursing approach?</div><div class="answer"><strong>Answer:</strong> Displacement = redirecting emotions (often anger) from a threatening target to a safer one. Example: patient angry at diagnosis shouts at the nurse. Nursing: do not personalise anger, acknowledge underlying feeling (“you seem really upset”), maintain professional boundaries.</div></div>
+        <div class="q-item"><span class="index-num">10</span><div class="question-text"><span class="mark-badge">6 marks</span>Describe regression. Why might a postoperative patient show regression?</div><div class="answer"><strong>Answer:</strong> Regression = reverting to earlier developmental behaviour under stress. Postoperative patient may become dependent, childlike, demand help with basic tasks – a way to cope with vulnerability.</div></div>
+        <div class="q-item"><span class="index-num">11</span><div class="question-text"><span class="mark-badge">8 marks</span>How should a nurse support a patient who is regressing after surgery?</div><div class="answer"><strong>Answer:</strong> Encourage independence gradually (praising small efforts), provide reassurance, avoid fostering dependency (e.g., by doing everything for them). Set gentle expectations while validating their need for support.</div></div>
+        <div class="q-item"><span class="index-num">12</span><div class="question-text"><span class="mark-badge">6 marks</span>Define rationalization. Provide an example from a patient with a chronic illness.</div><div class="answer"><strong>Answer:</strong> Rationalization = creating logical excuses for illogical or unacceptable behaviour. Example: smoker with COPD says, “Everyone dies anyway, so why quit?”</div></div>
+        <div class="q-item"><span class="index-num">13</span><div class="question-text"><span class="mark-badge">7 marks</span>What nursing interventions are useful for a patient using rationalization?</div><div class="answer"><strong>Answer:</strong> Explore ambivalence (gently highlight discrepancies), use motivational interviewing, avoid arguing or ridiculing the excuse. Help patient see the real reasons behind behaviour.</div></div>
+        <div class="q-item"><span class="index-num">14</span><div class="question-text"><span class="mark-badge">5 marks</span>Explain reaction formation and give a clinical example.</div><div class="answer"><strong>Answer:</strong> Reaction formation = behaving opposite to one’s true feelings. Example: patient who is terrified of dying becomes overly cheerful, makes jokes after terminal diagnosis.</div></div>
+        <div class="q-item"><span class="index-num">15</span><div class="question-text"><span class="mark-badge">6 marks</span>How can a nurse assess hidden distress when a patient displays reaction formation?</div><div class="answer"><strong>Answer:</strong> Observe non‑verbal cues (restlessness, sleep changes, withdrawal). Create a safe, private space and gently invite feelings: “sometimes people put on a brave face but feel very scared inside.”</div></div>
+        <div class="q-item"><span class="index-num">16</span><div class="question-text"><span class="mark-badge">7 marks</span>Define sublimation and explain why it is considered a mature defence.</div><div class="answer"><strong>Answer:</strong> Sublimation = channeling unacceptable impulses into socially acceptable activities. Mature because it transforms negative energy into constructive behaviour (e.g., anger → joining a support group, art, sport).</div></div>
+        <div class="q-item"><span class="index-num">17</span><div class="question-text"><span class="mark-badge">5 marks</span>What is intellectualization? Provide an example.</div><div class="answer"><strong>Answer:</strong> Intellectualization = focusing excessively on facts, logic, and technical details to avoid emotional distress. Example: after a frightening diagnosis, patient talks only about lab values, statistics, and treatment protocols.</div></div>
+        <div class="q-item"><span class="index-num">18</span><div class="question-text"><span class="mark-badge">8 marks</span>Describe how a nurse can gently explore emotions with a patient using intellectualization.</div><div class="answer"><strong>Answer:</strong> First acknowledge the patient’s knowledge (“you’ve really researched this”). Then ask open-ended emotion-focused questions: “I wonder how all this information makes you feel inside?” or “what’s the hardest part to cope with?”</div></div>
+        <div class="q-item"><span class="index-num">19</span><div class="question-text"><span class="mark-badge">5 marks</span>Define identification and give a nursing example.</div><div class="answer"><strong>Answer:</strong> Identification = adopting characteristics of someone admired. Example: a child with chronic illness wants to become a nurse or doctor.</div></div>
+        <div class="q-item"><span class="index-num">20</span><div class="question-text"><span class="mark-badge">5 marks</span>What is compensation? Provide a healthcare example.</div><div class="answer"><strong>Answer:</strong> Compensation = overachieving in one area to offset real or perceived weakness. Example: an amputee becomes an outstanding student to cope with body image concerns.</div></div>
+        <!-- 21-40 more short answer -->
+        <div class="q-item"><span class="index-num">21</span><div class="question-text"><span class="mark-badge">6 marks</span>Differentiate maladaptive and adaptive defence mechanisms, giving two examples of each.</div><div class="answer"><strong>Answer:</strong> Maladaptive = persistent distortion, hinders coping (e.g., denial, projection). Adaptive = flexible, reduces anxiety constructively (e.g., sublimation, humour).</div></div>
+        <div class="q-item"><span class="index-num">22</span><div class="question-text"><span class="mark-badge">5 marks</span>List four defence mechanisms commonly seen in oncology nursing.</div><div class="answer"><strong>Answer:</strong> Denial, intellectualization, rationalization, and sometimes reaction formation.</div></div>
+        <div class="q-item"><span class="index-num">23</span><div class="question-text"><span class="mark-badge">7 marks</span>Describe the defence mechanism “splitting”. In which disorder is it frequently observed, and what is the nursing role?</div><div class="answer"><strong>Answer:</strong> Splitting = viewing people or situations as all good or all bad. Common in borderline personality disorder. Nursing role: maintain consistent team communication, set firm boundaries, avoid taking sides.</div></div>
+        <div class="q-item"><span class="index-num">24</span><div class="question-text"><span class="mark-badge">6 marks</span>Identify defence mechanisms common in critical care nursing. Why are they frequent in that setting?</div><div class="answer"><strong>Answer:</strong> Dissociation, repression, denial. Critical care involves life‑threatening events, high stress – these defences protect the mind from overwhelming trauma.</div></div>
+        <div class="q-item"><span class="index-num">25</span><div class="question-text"><span class="mark-badge">8 marks</span>What defence mechanisms are typical in paediatric nursing? Which therapeutic approaches are recommended?</div><div class="answer"><strong>Answer:</strong> Regression, fantasy, acting out. Approaches: use play therapy, involve parents, provide reassurance, create a safe, predictable environment.</div></div>
+        <div class="q-item"><span class="index-num">26</span><div class="question-text"><span class="mark-badge">6 marks</span>List common defence mechanisms in geriatric nursing and explain why they may appear.</div><div class="answer"><strong>Answer:</strong> Denial of memory loss, rationalization, withdrawal. They may arise from fear of dependency, loss of autonomy, cognitive decline.</div></div>
+        <div class="q-item"><span class="index-num">27</span><div class="question-text"><span class="mark-badge">7 marks</span>Explain how nurses themselves use defence mechanisms and why self‑awareness matters.</div><div class="answer"><strong>Answer:</strong> Nurses may use emotional detachment (isolation), humour, suppression. Self‑awareness prevents compassion fatigue, countertransference, burnout, and promotes therapeutic use of self.</div></div>
+        <div class="q-item"><span class="index-num">28</span><div class="question-text"><span class="mark-badge">5 marks</span>Give two examples of adaptive defence mechanisms nurses can encourage in patients.</div><div class="answer"><strong>Answer:</strong> Sublimation (creative/active outlet), humour, suppression (temporary delay), altruism (helping others).</div></div>
+        <div class="q-item"><span class="index-num">29</span><div class="question-text"><span class="mark-badge">5 marks</span>List three therapeutic communication “do’s” when a patient uses defence mechanisms.</div><div class="answer"><strong>Answer:</strong> Use empathy, reflect feelings, maintain neutrality, provide safe environment.</div></div>
+        <div class="q-item"><span class="index-num">30</span><div class="question-text"><span class="mark-badge">5 marks</span>What communication “avoid” actions are essential when handling defence mechanisms?</div><div class="answer"><strong>Answer:</strong> Avoid arguing with denial, taking projection personally, reinforcing regression, confronting aggressively.</div></div>
+        <div class="q-item"><span class="index-num">31</span><div class="question-text"><span class="mark-badge">8 marks</span>Case: 45‑year‑old post‑MI says “it’s just indigestion, I’ll be back at work tomorrow.” Identify the defence and outline a full nursing plan.</div><div class="answer"><strong>Answer:</strong> Defence = denial. Plan: provide simple, factual education about MI; discuss risk factors; allow him to express fears gradually; involve family; follow up to monitor compliance; do not force acceptance.</div></div>
+        <div class="q-item"><span class="index-num">32</span><div class="question-text"><span class="mark-badge">7 marks</span>Differentiate between projection and displacement with clear examples.</div><div class="answer"><strong>Answer:</strong> Projection = attributing one’s own feeling to another (e.g., “you are nervous” → patient is nervous). Displacement = redirecting emotion to a safer target (e.g., angry at doctor, shouts at nurse).</div></div>
+        <div class="q-item"><span class="index-num">33</span><div class="question-text"><span class="mark-badge">5 marks</span>Why should a nurse not confront denial aggressively?</div><div class="answer"><strong>Answer:</strong> Denial often protects the patient from overwhelming anxiety. Aggressive confrontation may increase resistance, damage trust, and cause psychological harm. Gradual, supportive education is more effective.</div></div>
+        <div class="q-item"><span class="index-num">34</span><div class="question-text"><span class="mark-badge">6 marks</span>What is the role of the nurse when a patient uses reaction formation (e.g., exaggerated cheerfulness)?</div><div class="answer"><strong>Answer:</strong> Watch for hidden distress, do not directly challenge the cheerfulness, provide a safe space, gently reflect (“sometimes people put on a brave face, it’s okay to feel scared”).</div></div>
+        <div class="q-item"><span class="index-num">35</span><div class="question-text"><span class="mark-badge">6 marks</span>Describe the nursing intervention for a patient using intellectualization.</div><div class="answer"><strong>Answer:</strong> Acknowledge the factual knowledge, then gently invite emotions: “you really understand the medical details – how is your heart handling all this?” Avoid dismissing the intellectual effort.</div></div>
+        <div class="q-item"><span class="index-num">36</span><div class="question-text"><span class="mark-badge">8 marks</span>Explain the concept of “splitting” in psychiatric nursing and the importance of team consistency.</div><div class="answer"><strong>Answer:</strong> Splitting = patient categorizes staff as “all good” or “all bad”, causing staff conflict. Team consistency (same rules, same approach) and regular communication prevent staff splitting and maintain therapeutic milieu.</div></div>
+        <div class="q-item"><span class="index-num">37</span><div class="question-text"><span class="mark-badge">7 marks</span>What is the difference between identification and imitation? How can identification be therapeutic?</div><div class="answer"><strong>Answer:</strong> Identification is unconscious adopting of admired traits; imitation is conscious copying. Therapeutic when patient identifies with positive role models (e.g., a coping role).</div></div>
+        <div class="q-item"><span class="index-num">38</span><div class="question-text"><span class="mark-badge">6 marks</span>Define altruism and explain why it is considered an adaptive defence mechanism.</div><div class="answer"><strong>Answer:</strong> Altruism = selfless concern for others, often channelling own anxiety into helping. Adaptive because it strengthens social bonds and provides meaning.</div></div>
+        <div class="q-item"><span class="index-num">39</span><div class="question-text"><span class="mark-badge">6 marks</span>List the three vital centres regulated by the medulla oblongata (bonus cross‑reference) but in context of stress and defence, how can physiological and psychological defences interact?</div><div class="answer"><strong>Answer:</strong> (Though not in original doc, accept cardiac, respiratory, vasomotor centres). Psychological defences may reduce emotional arousal, thereby influencing sympathetic/parasympathetic balance.</div></div>
+        <div class="q-item"><span class="index-num">40</span><div class="question-text"><span class="mark-badge">10 marks</span>Discuss the nurse’s role in supporting a patient transitioning from maladaptive to adaptive coping. Provide examples.</div><div class="answer"><strong>Answer:</strong> Role: model adaptive coping; reinforce efforts (e.g., joining support group – sublimation); gently challenge maladaptive patterns without shaming; teach problem‑solving; refer to counselling. Example: move from denial (maladaptive) to information‑seeking (intellectualization) then to emotional expression.</div></div>
+        <!-- 41-60 continue -->
+        <div class="q-item"><span class="index-num">41</span><div class="question-text"><span class="mark-badge">5 marks</span>What is the purpose of defence mechanisms according to Freudian theory?</div><div class="answer"><strong>Answer:</strong> To protect the ego from anxiety arising from conflict between id impulses and superego demands, or from external threats.</div></div>
+        <div class="q-item"><span class="index-num">42</span><div class="question-text"><span class="mark-badge">7 marks</span>Explain how defence mechanisms can become maladaptive.</div><div class="answer"><strong>Answer:</strong> When used rigidly, persistently, and distort reality excessively, they prevent effective problem‑solving, damage relationships, and hinder emotional growth (e.g., chronic denial of illness).</div></div>
+        <div class="q-item"><span class="index-num">43</span><div class="question-text"><span class="mark-badge">5 marks</span>Give an example of humour as a mature defence in a healthcare setting.</div><div class="answer"><strong>Answer:</strong> A patient awaiting surgery makes a light‑hearted joke about hospital food – releases tension without denying fear, maintains connection with staff.</div></div>
+        <div class="q-item"><span class="index-num">44</span><div class="question-text"><span class="mark-badge">8 marks</span>How can a nurse assess whether a defence mechanism is adaptive or maladaptive?</div><div class="answer"><strong>Answer:</strong> Look at flexibility, duration, reality distortion, impact on functioning. Adaptive: temporary, reduces anxiety, allows eventual coping. Maladaptive: rigid, long‑term, worsens situation, blocks growth.</div></div>
+        <div class="q-item"><span class="index-num">45</span><div class="question-text"><span class="mark-badge">6 marks</span>Define dissociation. In which nursing area is it commonly seen?</div><div class="answer"><strong>Answer:</strong> Dissociation = temporary detachment from reality, identity, or memory. Common in critical care nursing (trauma patients).</div></div>
+        <div class="q-item"><span class="index-num">46</span><div class="question-text"><span class="mark-badge">5 marks</span>What is the difference between denial and avoidance?</div><div class="answer"><strong>Answer:</strong> Denial = unconscious refusal to accept reality. Avoidance = consciously staying away from situations that provoke anxiety.</div></div>
+        <div class="q-item"><span class="index-num">47</span><div class="question-text"><span class="mark-badge">7 marks</span>Describe how a nurse would handle a patient who projects hostility onto them.</div><div class="answer"><strong>Answer:</strong> Stay calm, do not react defensively, acknowledge the emotion behind the projection: “you seem really upset; it must be hard.” Explore source of distress without agreeing with false attribution.</div></div>
+        <div class="q-item"><span class="index-num">48</span><div class="question-text"><span class="mark-badge">6 marks</span>List three signs that a patient might be using repression.</div><div class="answer"><strong>Answer:</strong> Gaps in memory about stressful events; becoming anxious when reminded of certain topics; vague somatic complaints without clear cause.</div></div>
+        <div class="q-item"><span class="index-num">49</span><div class="question-text"><span class="mark-badge">7 marks</span>Explain the term “countertransference” and how it relates to nurses’ defence mechanisms.</div><div class="answer"><strong>Answer:</strong> Countertransference = nurse’s unconscious emotional reactions to a patient, often based on nurse’s own unresolved conflicts. Defence mechanisms (e.g., detachment) may be a sign of countertransference; self‑awareness is essential.</div></div>
+        <div class="q-item"><span class="index-num">50</span><div class="question-text"><span class="mark-badge">8 marks</span>Case: A patient with a new stoma refuses to look at it or learn self‑care. Identify defence and nursing interventions.</div><div class="answer"><strong>Answer:</strong> Denial. Interventions: build trust, provide gradual exposure, involve stoma therapist, allow expression of disgust/fear, reinforce small steps (e.g., just looking).</div></div>
+        <!-- 51-60 continue concisely but cover all -->
+        <div class="q-item"><span class="index-num">51</span><div class="question-text"><span class="mark-badge">5 marks</span>What is the difference between primitive and immature defences?</div><div class="answer"><strong>Answer:</strong> Primitive = severe reality distortion (psychotic). Immature = common in adolescents/ some adults, less reality distortion but still problematic (acting out, projection).</div></div>
+        <div class="q-item"><span class="index-num">52</span><div class="question-text"><span class="mark-badge">6 marks</span>Define “acting out” and give an example from an adolescent patient.</div><div class="answer"><strong>Answer:</strong> Acting out = expressing unconscious feelings through behaviour rather than words. Example: teen with family conflict becomes verbally aggressive toward nurse.</div></div>
+        <div class="q-item"><span class="index-num">53</span><div class="question-text"><span class="mark-badge">8 marks</span>How can a nurse use the concept of defence mechanisms to enhance therapeutic communication?</div><div class="answer"><strong>Answer:</strong> By recognising the defence, nurse can tailor responses: not confronting denial, gently exploring feelings behind intellectualization, validating emotions under reaction formation, thus building trust and encouraging healthier coping.</div></div>
+        <div class="q-item"><span class="index-num">54</span><div class="question-text"><span class="mark-badge">5 marks</span>What is the “ego” and why is it relevant to defence mechanisms?</div><div class="answer"><strong>Answer:</strong> The ego is the reality‑based part of psyche that mediates between id, superego, and external world. Defence mechanisms protect the ego from overwhelming anxiety.</div></div>
+        <div class="q-item"><span class="index-num">55</span><div class="question-text"><span class="mark-badge">7 marks</span>Explain how defence mechanisms can be both protective and problematic in healthcare.</div><div class="answer"><strong>Answer:</strong> Protective: shield from acute distress, buy time to adjust. Problematic: if persistent, they prevent acceptance, treatment adherence, and emotional processing (e.g., long‑term denial worsens prognosis).</div></div>
+        <div class="q-item"><span class="index-num">56</span><div class="question-text"><span class="mark-badge">7 marks</span>Describe the defence mechanism “undoing” (briefly, as an extra). Can you relate it to any clinical behaviour?</div><div class="answer"><strong>Answer:</strong> Undoing = attempting to negate a previous thought/act by performing a contrary behaviour. Example: patient with aggressive impulses becomes excessively apologetic or helpful.</div></div>
+        <div class="q-item"><span class="index-num">57</span><div class="question-text"><span class="mark-badge">5 marks</span>What defence mechanism might a patient use if they constantly make jokes about a serious illness? Is it adaptive?</div><div class="answer"><strong>Answer:</strong> Humour (mature defence) – can be adaptive if it relieves tension and connects with others, but may mask distress if used rigidly.</div></div>
+        <div class="q-item"><span class="index-num">58</span><div class="question-text"><span class="mark-badge">6 marks</span>Differentiate intellectualization from rationalization.</div><div class="answer"><strong>Answer:</strong> Intellectualization = focusing on abstract facts to avoid emotion. Rationalization = creating plausible excuses for behaviour. Both are neurotic but intellectualization avoids feeling, rationalization justifies action.</div></div>
+        <div class="q-item"><span class="index-num">59</span><div class="question-text"><span class="mark-badge">7 marks</span>Case: A patient who is told they need dialysis says “I’ll just take better care of myself and won’t need it.” Identify the defence and discuss nursing response.</div><div class="answer"><strong>Answer:</strong> Denial. Response: provide clear, simple education about kidney function; explore fears; do not argue; involve family; reinforce that dialysis can be life‑saving.</div></div>
+        <div class="q-item"><span class="index-num">60</span><div class="question-text"><span class="mark-badge">10 marks</span>Discuss how a nurse’s awareness of their own defence mechanisms can improve patient care and reduce burnout.</div><div class="answer"><strong>Answer:</strong> Recognising personal use of detachment, humour, or suppression helps nurse engage authentically, avoid cynicism, and seek support. Self‑awareness reduces compassion fatigue, improves empathy, and models healthy coping.</div></div>
+        <!-- 61-80 add remaining 20 items with brief but complete answers -->
+        <div class="q-item"><span class="index-num">61</span><div class="question-text"><span class="mark-badge">6 marks</span>Define fantasy as a defence mechanism and give a paediatric example.</div><div class="answer"><strong>Answer:</strong> Fantasy = escaping unpleasant reality by imagining. Example: child in hospital pretends they are a superhero.</div></div>
+        <div class="q-item"><span class="index-num">62</span><div class="question-text"><span class="mark-badge">6 marks</span>What is “isolation of affect”? How might it present in a patient?</div><div class="answer"><strong>Answer:</strong> Separating an idea from the emotion attached to it. Patient describes traumatic event without any feeling, as if reporting facts.</div></div>
+        <div class="q-item"><span class="index-num">63</span><div class="question-text"><span class="mark-badge">5 marks</span>How can defence mechanisms influence treatment adherence?</div><div class="answer"><strong>Answer:</strong> Denial or rationalization may lead to non‑adherence (e.g., “I don’t really need medication”). Understanding helps nurse address underlying fears.</div></div>
+        <div class="q-item"><span class="index-num">64</span><div class="question-text"><span class="mark-badge">7 marks</span>Case: A newly diagnosed diabetic patient says “I can’t have diabetes, I feel fine.” Which defence? Nursing plan?</div><div class="answer"><strong>Answer:</strong> Denial. Plan: educate gently about diabetes, allow time, involve diabetic educator, discuss consequences without alarm, support gradual acceptance.</div></div>
+        <div class="q-item"><span class="index-num">65</span><div class="question-text"><span class="mark-badge">5 marks</span>What does “support the transition from maladaptive to adaptive coping” mean in practice?</div><div class="answer"><strong>Answer:</strong> Helping the patient replace persistent, harmful defences (e.g., denial) with healthier strategies (e.g., seeking information, expressing emotion).</div></div>
+        <div class="q-item"><span class="index-num">66</span><div class="question-text"><span class="mark-badge">6 marks</span>List two defence mechanisms that involve distortion of reality and two that involve avoidance.</div><div class="answer"><strong>Answer:</strong> Distortion: denial, projection. Avoidance: repression, suppression (conscious).</div></div>
+        <div class="q-item"><span class="index-num">67</span><div class="question-text"><span class="mark-badge">7 marks</span>Explain the term “therapeutic use of self” in the context of defence mechanisms.</div><div class="answer"><strong>Answer:</strong> Nurse uses own personality, empathy, and self‑awareness to create a healing relationship, recognising and responding to patient’s defences without personal reaction.</div></div>
+        <div class="q-item"><span class="index-num">68</span><div class="question-text"><span class="mark-badge">5 marks</span>What is the difference between identification and introjection?</div><div class="answer"><strong>Answer:</strong> Identification = adopting traits of another. Introjection = absorbing an external quality/object into oneself (more primitive, e.g., adopting values of an abuser).</div></div>
+        <div class="q-item"><span class="index-num">69</span><div class="question-text"><span class="mark-badge">8 marks</span>Case: A patient who lost a leg in an accident says “I’ll walk again in a month, I just need to rest.” Identify defence and nursing approach.</div><div class="answer"><strong>Answer:</strong> Denial. Approach: allow hope but gently educate about rehabilitation timeline; involve physiotherapy early to show realistic progress; support grieving.</div></div>
+        <div class="q-item"><span class="index-num">70</span><div class="question-text"><span class="mark-badge">6 marks</span>What is the potential harm of a nurse consistently using emotional detachment (isolation) as a defence?</div><div class="answer"><strong>Answer:</strong> May lead to compassion fatigue, burnout, loss of empathy, and depersonalised care.</div></div>
+        <div class="q-item"><span class="index-num">71</span><div class="question-text"><span class="mark-badge">5 marks</span>Define compensation and give an example unrelated to illness.</div><div class="answer"><strong>Answer:</strong> Emphasising strength to hide weakness. Example: short person becomes assertive leader.</div></div>
+        <div class="q-item"><span class="index-num">72</span><div class="question-text"><span class="mark-badge">6 marks</span>What is the defence mechanism of “turning against self”?</div><div class="answer"><strong>Answer:</strong> Directing negative feelings toward oneself instead of others. May present as self‑blame or self‑harm.</div></div>
+        <div class="q-item"><span class="index-num">73</span><div class="question-text"><span class="mark-badge">7 marks</span>How might a nurse respond to a patient using displacement in a busy ward?</div><div class="answer"><strong>Answer:</strong> Remain calm, avoid taking it personally, later address the underlying emotion: “it seems you’re really angry – would you like to talk about what’s upsetting you?”</div></div>
+        <div class="q-item"><span class="index-num">74</span><div class="question-text"><span class="mark-badge">5 marks</span>Why is it important not to argue with rationalization?</div><div class="answer"><strong>Answer:</strong> Arguing makes patient defensive and reinforces the rationalization. Gentle exploration of ambivalence is more productive.</div></div>
+        <div class="q-item"><span class="index-num">75</span><div class="question-text"><span class="mark-badge">7 marks</span>Describe how a nurse can encourage sublimation in an angry patient.</div><div class="answer"><strong>Answer:</strong> Suggest physical activities, creative outlets, or joining a peer support group to channel anger constructively.</div></div>
+        <div class="q-item"><span class="index-num">76</span><div class="question-text"><span class="mark-badge">8 marks</span>Explain the relationship between defence mechanisms and post‑traumatic stress disorder (PTSD).</div><div class="answer"><strong>Answer:</strong> In PTSD, repression and dissociation may occur during trauma, later manifesting as intrusive memories. Defence mechanisms are initial attempts to cope with overwhelming experience.</div></div>
+        <div class="q-item"><span class="index-num">77</span><div class="question-text"><span class="mark-badge">5 marks</span>What is the main difference between suppression and denial?</div><div class="answer"><strong>Answer:</strong> Suppression = conscious postponement; denial = unconscious refusal to accept reality.</div></div>
+        <div class="q-item"><span class="index-num">78</span><div class="question-text"><span class="mark-badge">6 marks</span>List three signs that a patient may be using intellectualization.</div><div class="answer"><strong>Answer:</strong> Excessive focus on medical facts, avoids emotion words, speaks in detached technical language.</div></div>
+        <div class="q-item"><span class="index-num">79</span><div class="question-text"><span class="mark-badge">7 marks</span>Case: A patient awaiting biopsy says “I’m not worried, statistics show 90% are benign.” Identify defence and appropriate nursing reply.</div><div class="answer"><strong>Answer:</strong> Intellectualization. Reply: “It’s good you understand the stats – and it’s also normal to feel anxious while waiting.”</div></div>
+        <div class="q-item"><span class="index-num">80</span><div class="question-text"><span class="mark-badge">8 marks</span>Discuss the nurse’s role when a family member uses defence mechanisms (e.g., denial about a patient’s prognosis).</div><div class="answer"><strong>Answer:</strong> Show empathy, provide honest information gradually, allow questions, support family meetings, refer to counselling if needed. Do not force acceptance.</div></div>
+        <!-- 81-100 final ones, compact yet complete -->
+        <div class="q-item"><span class="index-num">81</span><div class="question-text"><span class="mark-badge">5 marks</span>Define ego and superego briefly.</div><div class="answer"><strong>Answer:</strong> Ego = realistic mediator; superego = internalised moral standards.</div></div>
+        <div class="q-item"><span class="index-num">82</span><div class="question-text"><span class="mark-badge">6 marks</span>Name two defence mechanisms that involve blaming others.</div><div class="answer"><strong>Answer:</strong> Projection, acting out (may blame others for own behaviour).</div></div>
+        <div class="q-item"><span class="index-num">83</span><div class="question-text"><span class="mark-badge">7 marks</span>How can a nurse help a patient move from reaction formation to genuine expression?</div><div class="answer"><strong>Answer:</strong> Provide safe, non‑judgmental space; reflect that many people feel scared even when they smile; wait and listen.</div></div>
+        <div class="q-item"><span class="index-num">84</span><div class="question-text"><span class="mark-badge">5 marks</span>What is the “id” in Freudian theory?</div><div class="answer"><strong>Answer:</strong> The primitive, instinctual part of the psyche seeking immediate gratification.</div></div>
+        <div class="q-item"><span class="index-num">85</span><div class="question-text"><span class="mark-badge">8 marks</span>Case: A patient with heart failure continues eating high‑salt foods, saying “a little won’t hurt.” Defence? Nursing intervention?</div><div class="answer"><strong>Answer:</strong> Rationalization. Intervention: explore understanding, use motivational interviewing, discuss consequences gently, involve dietitian.</div></div>
+        <div class="q-item"><span class="index-num">86</span><div class="question-text"><span class="mark-badge">6 marks</span>What is the difference between identification and sublimation?</div><div class="answer"><strong>Answer:</strong> Identification = adopting traits of another. Sublimation = channelling impulse into acceptable behaviour.</div></div>
+        <div class="q-item"><span class="index-num">87</span><div class="question-text"><span class="mark-badge">5 marks</span>Name two defence mechanisms common in patients with terminal illness.</div><div class="answer"><strong>Answer:</strong> Denial, intellectualization, bargaining (reaction formation).</div></div>
+        <div class="q-item"><span class="index-num">88</span><div class="question-text"><span class="mark-badge">7 marks</span>How can defence mechanisms affect the grieving process?</div><div class="answer"><strong>Answer:</strong> Denial may delay mourning; intellectualization may block necessary emotional work. Adaptive defences (sublimation, humour) can help integrate loss.</div></div>
+        <div class="q-item"><span class="index-num">89</span><div class="question-text"><span class="mark-badge">6 marks</span>Explain the term “alliance” in terms of working with patient defences.</div><div class="answer"><strong>Answer:</strong> Building a trusting relationship so patient feels safe enough to lower defences and explore difficult feelings.</div></div>
+        <div class="q-item"><span class="index-num">90</span><div class="question-text"><span class="mark-badge">7 marks</span>Case: A patient says “the doctors are wrong, I’m going to get a second opinion that says I’m fine.” Defence? Nursing response?</div><div class="answer"><strong>Answer:</strong> Denial. Response: support patient’s right to seek information, but gently ask “what would feel manageable if the second opinion is the same?”</div></div>
+        <div class="q-item"><span class="index-num">91</span><div class="question-text"><span class="mark-badge">5 marks</span>What is the main purpose of the ego?</div><div class="answer"><strong>Answer:</strong> To mediate between id impulses, superego demands, and external reality, using defence mechanisms to manage anxiety.</div></div>
+        <div class="q-item"><span class="index-num">92</span><div class="question-text"><span class="mark-badge">5 marks</span>Define “undoing” as a defence mechanism.</div><div class="answer"><strong>Answer:</strong> Attempting to symbolically cancel out an unacceptable thought or act by doing the opposite.</div></div>
+        <div class="q-item"><span class="index-num">93</span><div class="question-text"><span class="mark-badge">8 marks</span>Explain the nursing role when a patient uses multiple defence mechanisms simultaneously.</div><div class="answer"><strong>Answer:</strong> Observe patterns, prioritise the most maladaptive ones, respond with empathy, avoid overwhelming the patient, and support gradual coping.</div></div>
+        <div class="q-item"><span class="index-num">94</span><div class="question-text"><span class="mark-badge">6 marks</span>How can a nurse support a patient using compensation in a healthy way?</div><div class="answer"><strong>Answer:</strong> Acknowledge strengths, encourage realistic goals, help them accept limitations without shame.</div></div>
+        <div class="q-item"><span class="index-num">95</span><div class="question-text"><span class="mark-badge">5 marks</span>What is the difference between reaction formation and undoing?</div><div class="answer"><strong>Answer:</strong> Reaction formation = behaving opposite to true feeling. Undoing = performing a ritual to “reverse” a forbidden act.</div></div>
+        <div class="q-item"><span class="index-num">96</span><div class="question-text"><span class="mark-badge">7 marks</span>Case: A patient with cancer says “I’ll beat this by thinking positively; negative people just give up.” Identify defence(s).</div><div class="answer"><strong>Answer:</strong> Possible reaction formation (overly optimistic to mask fear) and rationalisation.</div></div>
+        <div class="q-item"><span class="index-num">97</span><div class="question-text"><span class="mark-badge">6 marks</span>How do defence mechanisms relate to the concept of psychological safety?</div><div class="answer"><strong>Answer:</strong> They temporarily preserve psychological safety by reducing anxiety, but can undermine long‑term adjustment if overused.</div></div>
+        <div class="q-item"><span class="index-num">98</span><div class="question-text"><span class="mark-badge">5 marks</span>List two defence mechanisms that are primarily reality‑distorting.</div><div class="answer"><strong>Answer:</strong> Denial, projection.</div></div>
+        <div class="q-item"><span class="index-num">99</span><div class="question-text"><span class="mark-badge">7 marks</span>How can a nurse use reflection to help a patient become aware of a defence mechanism?</div><div class="answer"><strong>Answer:</strong> Gently reflect observed patterns: “I notice when we talk about your diagnosis, you focus on the technical details. Sometimes that helps us avoid feeling scared. How are you feeling underneath?”</div></div>
+        <div class="q-item"><span class="index-num">100</span><div class="question-text"><span class="mark-badge">10 marks</span>Summarise the importance of understanding defence mechanisms for a nursing professional, integrating theory, communication, and self‑care.</div><div class="answer"><strong>Answer:</strong> Understanding defence mechanisms enables nurses to interpret challenging behaviours as coping, respond therapeutically, foster adaptive strategies, and recognise their own defences to prevent burnout. It bridges psychological theory and compassionate, safe patient care.</div></div>
     </div>
-
-    <!-- tabs -->
-    <div class="tab-container" id="tabContainer">
-        <div class="tab active" data-sec="all"><i class="fas fa-layer-group"></i>All (100)</div>
-        <div class="tab" data-sec="func"><i class="fas fa-heart-circle"></i>1‑20 Functions</div>
-        <div class="tab" data-sec="struct"><i class="fas fa-shapes"></i>21‑45 Structure</div>
-        <div class="tab" data-sec="organs"><i class="fas fa-tree"></i>46‑65 Organs</div>
-        <div class="tab" data-sec="physio"><i class="fas fa-wave-square"></i>66‑80 Physiology</div>
-        <div class="tab" data-sec="clinical"><i class="fas fa-stethoscope"></i>81‑100 Clinical (20)</div>
-    </div>
-
-    <!-- search -->
-    <div class="search-box">
-        <i class="fas fa-search"></i>
-        <input type="text" id="search" placeholder="filter by keyword ...">
-    </div>
-
-    <!-- container -->
-    <div id="questionsContainer" class="questions-grid"></div>
-
-    <div class="footer">
-        <i class="fas fa-brain"></i> tap any card to show/hide answer · updated 100
-    </div>
+    <div class="footer">⚕️ defence mechanisms 2026 · all questions 5–10 marks · answers follow each · study guide</div>
 </div>
-
-<script>
-    (function() {
-        // ---------- 100 QUESTIONS (carefully balanced) ----------
-        const questions = [
-            // === FUNCTIONS (1–20) ===
-            { sec: 'func', q: 'Define the lymphatic system and list its three primary functions.', a: '<strong>Answer:</strong> Unidirectional drainage network beginning blindly in tissues. 1) Fluid balance – returns interstitial fluid to blood. 2) Fat absorption – lacteals absorb fats (chyle). 3) Immunity – antigen transport, lymphocyte surveillance.' },
-            { sec: 'func', q: 'Explain how lymphatic vessels maintain fluid balance.', a: '<strong>Answer:</strong> Lymphatic capillaries collect excess interstitial fluid (2‑4 L/day). Lymphatics carry it through nodes → ducts → emptied into subclavian veins, preventing edema.' },
-            { sec: 'func', q: 'What is chyle and where is it produced?', a: '<strong>Answer:</strong> Milky fluid formed in lacteals of small intestine; contains lymph, chylomicrons, fats, fat‑soluble vitamins.' },
-            { sec: 'func', q: 'Describe three immune roles of the lymphatic system.', a: '<strong>Answer:</strong> 1) Transport antigens to lymph nodes. 2) Lymphocyte recirculation. 3) Antibody production & memory cell formation.' },
-            { sec: 'func', q: 'Which organs produce most lymph?', a: '<strong>Answer:</strong> Liver (≈50%) due to fenestrated sinusoids, intestines (≈30%) due to lacteal absorption.' },
-            { sec: 'func', q: 'What would happen without lymphatic drainage?', a: '<strong>Answer:</strong> Edema, impaired immunity, malabsorption of fats/vitamins, and chronic lymphedema.' },
-            { sec: 'func', q: 'Explain the Revised Starling Principle regarding lymphatics.', a: '<strong>Answer:</strong> Capillaries constantly filter fluid (glycocalyx prevents full reabsorption). Lymphatic drainage is essential to return filtered fluid.' },
-            { sec: 'func', q: 'How does the lymphatic system interact with the cardiovascular system?', a: '<strong>Answer:</strong> Returns leaked fluid to blood, maintains blood volume, transports absorbed fats via thoracic duct.' },
-            { sec: 'func', q: 'Name the two main lymphatic ducts.', a: '<strong>Answer:</strong> Right lymphatic duct (right upper quadrant) and thoracic duct (rest of body).' },
-            { sec: 'func', q: 'What is the composition of lymph?', a: '<strong>Answer:</strong> Water, lymphocytes, proteins, cellular debris, bacteria, fats (chyle in gut). Resembles plasma but less protein.' },
-            { sec: 'func', q: 'Compare lymph with blood plasma.', a: '<strong>Answer:</strong> Lymph has lower protein (except liver), contains mainly lymphocytes, clots slower, may appear milky (chyle).' },
-            { sec: 'func', q: 'Why is lymphatic flow described as “unidirectional”?', a: '<strong>Answer:</strong> One‑way valves and blind‑ending capillaries ensure lymph flows only from tissues toward subclavian veins.' },
-            { sec: 'func', q: 'Drainage territory of right lymphatic duct.', a: '<strong>Answer:</strong> Right upper limb, right side head/neck, right thorax.' },
-            { sec: 'func', q: 'What is the cisterna chyli?', a: '<strong>Answer:</strong> Dilated sac at origin of thoracic duct (T12‑L2); collects lymph from lower body and intestines.' },
-            { sec: 'func', q: 'Daily lymph production?', a: '<strong>Answer:</strong> 8‑12 litres per day.' },
-            { sec: 'func', q: 'Define “lacteal”.', a: '<strong>Answer:</strong> Lymphatic capillary in intestinal villus that absorbs dietary fat.' },
-            { sec: 'func', q: 'What are the main functions of lymph nodes?', a: '<strong>Answer:</strong> Filter lymph, immune surveillance, antigen presentation, B/T cell activation.' },
-            { sec: 'func', q: 'What is the role of MALT?', a: '<strong>Answer:</strong> Mucosa‑associated lymphoid tissue protects mucosal surfaces (GALT, BALT).' },
-            { sec: 'func', q: 'How does the lymphatic system absorb fats?', a: '<strong>Answer:</strong> Lacteals absorb chylomicrons (too large for blood capillaries) → mesenteric lymphatics → cisterna chyli.' },
-            { sec: 'func', q: 'What is the importance of the glycocalyx?', a: '<strong>Answer:</strong> Endothelial layer that limits capillary filtration; damage increases lymph load.' },
-
-            // === STRUCTURE (21–45) ===
-            { sec: 'struct', q: 'Describe unique features of lymphatic capillaries.', a: '<strong>Answer:</strong> Blind‑ending, larger diameter, absent basement membrane, overlapping endothelial flaps, anchoring filaments.' },
-            { sec: 'struct', q: 'Afferent vs efferent lymphatic vessels.', a: '<strong>Answer:</strong> Afferent carry unfiltered lymph toward node (multiple). Efferent carry filtered lymph away from node (fewer, at hilum).' },
-            { sec: 'struct', q: 'How is lymph propelled?', a: '<strong>Answer:</strong> Intrinsic pump (pericytes contract 6‑10/min) + extrinsic forces (skeletal muscle, respiration, arterial pulsation).' },
-            { sec: 'struct', q: 'Gross structure of a lymph node.', a: '<strong>Answer:</strong> Bean‑shaped, capsule, hilum, cortex, medulla, afferent vessels (convex), efferent (hilum).' },
-            { sec: 'struct', q: 'Microscopic zones of a lymph node.', a: '<strong>Answer:</strong> Cortex (B‑cell follicles), paracortex (T‑cells), medulla (cords & sinuses).' },
-            { sec: 'struct', q: 'What happens in the germinal center?', a: '<strong>Answer:</strong> B‑cell proliferation, affinity maturation, class switching, memory cell formation.' },
-            { sec: 'struct', q: 'Trace lymph through a lymph node.', a: '<strong>Answer:</strong> Afferent → subcapsular sinus → trabecular sinuses → cortex/paracortex → medullary sinuses → efferent.' },
-            { sec: 'struct', q: 'What are Peyer’s patches?', a: '<strong>Answer:</strong> Lymphoid follicles in ileum (GALT); M cells sample antigens.' },
-            { sec: 'struct', q: 'Describe the cisterna chyli in detail.', a: '<strong>Answer:</strong> Dilated sac at T12‑L2, origin of thoracic duct, receives lymph from lower limbs, abdomen, intestines.' },
-            { sec: 'struct', q: 'Course of thoracic duct.', a: '<strong>Answer:</strong> From cisterna chyli → aortic hiatus → right of midline → crosses left at T5 → empties into left subclavian‑jugular junction.' },
-            { sec: 'struct', q: 'Formation of right lymphatic duct.', a: '<strong>Answer:</strong> Union of right jugular, subclavian, bronchomediastinal trunks; length 1‑2 cm.' },
-            { sec: 'struct', q: 'Tissues lacking lymphatics.', a: '<strong>Answer:</strong> Epidermis, bone marrow, CNS parenchyma (meninges excepted), cornea, cartilage, placenta.' },
-            { sec: 'struct', q: 'What are anchoring filaments?', a: '<strong>Answer:</strong> Collagen fibers tether lymphatic capillaries to ECM; when interstitial pressure rises, they pull vessel open.' },
-            { sec: 'struct', q: 'Function of valves in lymphatics.', a: '<strong>Answer:</strong> Ensure unidirectional flow, prevent backflow.' },
-            { sec: 'struct', q: 'Approximate number of lymph nodes in humans.', a: '<strong>Answer:</strong> ~450.' },
-            { sec: 'struct', q: 'What is a lymph node hilum?', a: '<strong>Answer:</strong> Indented region where blood vessels enter and efferent lymphatics exit.' },
-            { sec: 'struct', q: 'Cell types in paracortex.', a: '<strong>Answer:</strong> T‑cells, interdigitating dendritic cells.' },
-            { sec: 'struct', q: 'Medullary cords contain?', a: '<strong>Answer:</strong> Plasma cells, macrophages, B‑cells.' },
-            { sec: 'struct', q: 'What are HEVs?', a: '<strong>Answer:</strong> High endothelial venules – specialized vessels in lymph nodes with cuboidal endothelium; site of lymphocyte entry from blood.' },
-            { sec: 'struct', q: 'Difference between continuous and fenestrated capillaries (relation to lymph).', a: '<strong>Answer:</strong> Continuous capillaries (muscle, skin) have tight junctions; fenestrated (kidney, intestine) have pores – more fluid leakage, greater lymph load.' },
-            { sec: 'struct', q: 'What are the major lymphatic trunks?', a: '<strong>Answer:</strong> Lumbar, intestinal, bronchomediastinal, subclavian, jugular trunks.' },
-            { sec: 'struct', q: 'What is the function of the lymphoid stroma?', a: '<strong>Answer:</strong> Reticular meshwork supports immune cells, allows migration.' },
-            { sec: 'struct', q: 'What are the deep cervical lymph nodes?', a: '<strong>Answer:</strong> Nodes along internal jugular vein; drain head and neck.' },
-            { sec: 'struct', q: 'Name the superficial lymph nodes of the groin.', a: '<strong>Answer:</strong> Superficial inguinal nodes.' },
-            { sec: 'struct', q: 'Where are the axillary nodes?', a: '<strong>Answer:</strong> In axilla; drain upper limb, breast, thorax.' },
-
-            // === ORGANS (46–65) ===
-            { sec: 'organs', q: 'Primary vs secondary lymphoid organs.', a: '<strong>Answer:</strong> Primary: bone marrow (B‑cell maturation), thymus (T‑cell maturation). Secondary: nodes, spleen, tonsils, MALT (immune response).' },
-            { sec: 'organs', q: 'Structure of thymus.', a: '<strong>Answer:</strong> Bilobed in superior mediastinum; lobules with cortex (immature T‑cells) and medulla (Hassall’s corpuscles).' },
-            { sec: 'organs', q: 'Function of thymus.', a: '<strong>Answer:</strong> T‑cell maturation, positive/negative selection, thymic hormone production.' },
-            { sec: 'organs', q: 'Spleen location and subdivisions.', a: '<strong>Answer:</strong> Left upper quadrant; red pulp (cords & sinuses) and white pulp (PALS, follicles).' },
-            { sec: 'organs', q: 'Functions of spleen.', a: '<strong>Answer:</strong> Filters blood, removes old RBCs, iron recycling, immune response (blood antigens), platelet storage, haematopoiesis (fetal).' },
-            { sec: 'organs', q: 'Compare lymph node and spleen.', a: '<strong>Answer:</strong> Node filters lymph; spleen filters blood. Node has cortex/paracortex; spleen red/white pulp.' },
-            { sec: 'organs', q: 'Tonsils – locations.', a: '<strong>Answer:</strong> Pharyngeal (nasopharynx), palatine (faucial pillars), lingual (tongue base), tubal (near auditory tube).' },
-            { sec: 'organs', q: 'What is Waldeyer’s ring?', a: '<strong>Answer:</strong> Tonsillar lymphoid ring at pharynx entrance.' },
-            { sec: 'organs', q: 'Define MALT and give examples.', a: '<strong>Answer:</strong> Mucosa‑associated lymphoid tissue: GALT (Peyer’s patches, appendix), BALT, NALT.' },
-            { sec: 'organs', q: 'Immunological role of appendix.', a: '<strong>Answer:</strong> Biofilm reservoir for gut flora, immune surveillance, B‑cell maturation, IgA production.' },
-            { sec: 'organs', q: 'What are M cells?', a: '<strong>Answer:</strong> Microfold cells overlying Peyer’s patches; sample luminal antigens.' },
-            { sec: 'organs', q: 'Hassall’s corpuscles – function?', a: '<strong>Answer:</strong> Concentric epithelial whorls in thymic medulla; involved in T‑regulatory cell development.' },
-            { sec: 'organs', q: 'Describe thymic involution.', a: '<strong>Answer:</strong> After puberty, thymus gradually replaced by adipose tissue, but remains functional.' },
-            { sec: 'organs', q: 'Red pulp composition and role.', a: '<strong>Answer:</strong> Splenic cords and venous sinuses; filtration of blood, removal of old RBCs.' },
-            { sec: 'organs', q: 'White pulp composition and role.', a: '<strong>Answer:</strong> Periarteriolar lymphoid sheaths (T‑cells) and follicles (B‑cells); immune response.' },
-            { sec: 'organs', q: 'What are the main tonsillar crypts?', a: '<strong>Answer:</strong> Deep invaginations in palatine tonsils that trap bacteria/debris.' },
-            { sec: 'organs', q: 'What is the marginal zone of spleen?', a: '<strong>Answer:</strong> Region between red and white pulp; contains B‑cells and macrophages.' },
-            { sec: 'organs', q: 'What are the lymphatic nodules?', a: '<strong>Answer:</strong> Non‑encapsulated clusters of lymphoid tissue (e.g., in appendix).' },
-            { sec: 'organs', q: 'What is the function of the fibrous trabeculae in spleen?', a: '<strong>Answer:</strong> Support structure; carry blood vessels.' },
-            { sec: 'organs', q: 'Name the three parts of Waldeyer’s ring.', a: '<strong>Answer:</strong> Pharyngeal, palatine, lingual tonsils.' },
-
-            // === PHYSIOLOGY (66–80) ===
-            { sec: 'physio', q: 'Mechanism of lymph formation.', a: '<strong>Answer:</strong> Interstitial fluid pressure opens overlapping endothelial flaps; fluid enters, valves prevent backflow.' },
-            { sec: 'physio', q: 'How does exercise influence lymph flow?', a: '<strong>Answer:</strong> Increases via muscle pump, respiration, arterial pulsation, and higher interstitial fluid.' },
-            { sec: 'physio', q: 'Factors that impair lymph flow.', a: '<strong>Answer:</strong> Node dissection, tumors, filariasis, radiation, immobility, venous hypertension, obesity.' },
-            { sec: 'physio', q: 'Why is intestinal lymph flow high after a fatty meal?', a: '<strong>Answer:</strong> Chylomicrons enter lacteals, chyle volume increases, peristalsis enhances flow.' },
-            { sec: 'physio', q: 'Relation: capillary pressure, interstitial fluid, lymph.', a: '<strong>Answer:</strong> Net filtration > reabsorption (Revised Starling). Lymphatics drain excess; overload → edema.' },
-            { sec: 'physio', q: 'Role of glycocalyx in lymph formation.', a: '<strong>Answer:</strong> Endothelial coat limits filtration; damage raises lymph load.' },
-            { sec: 'physio', q: 'Autonomic control of lymph vessels.', a: '<strong>Answer:</strong> Sympathetic (noradrenaline) increases contraction rate; parasympathetic minor effect.' },
-            { sec: 'physio', q: 'Intrinsic vs extrinsic propulsion.', a: '<strong>Answer:</strong> Intrinsic: pericyte contraction (~2/3 resting flow). Extrinsic: muscle/respiratory pump (~1/3).' },
-            { sec: 'physio', q: 'What are pericytes?', a: '<strong>Answer:</strong> Contractile cells around collecting lymphatics; generate intrinsic pump.' },
-            { sec: 'physio', q: 'How do anchoring filaments work?', a: '<strong>Answer:</strong> Collagen filaments pull lymphatic capillary open when interstitial pressure rises.' },
-            { sec: 'physio', q: 'What is the lymphovenous junction?', a: '<strong>Answer:</strong> Termination of ducts at subclavian‑jugular junction; valves prevent venous reflux.' },
-            { sec: 'physio', q: 'Does normal lymph contain erythrocytes?', a: '<strong>Answer:</strong> No; if present (hemorrhage) indicates pathology.' },
-            { sec: 'physio', q: 'What pressure drives lymph formation?', a: '<strong>Answer:</strong> Interstitial fluid pressure (normally subatmospheric; elevation increases lymph.' },
-            { sec: 'physio', q: 'Effect of general anesthesia on lymph flow?', a: '<strong>Answer:</strong> Reduces intrinsic contractions, but passive extrinsic flow continues.' },
-            { sec: 'physio', q: 'Can lymphatic vessels regenerate?', a: '<strong>Answer:</strong> Yes, lymphangiogenesis occurs after injury, though sometimes insufficient.' },
-
-            // === CLINICAL (81–100) – only 20 questions, disorders reduced ===
-            { sec: 'clinical', q: 'Define lymphedema.', a: '<strong>Answer:</strong> Chronic protein‑rich fluid accumulation due to impaired lymphatic drainage.' },
-            { sec: 'clinical', q: 'Primary vs secondary lymphedema (causes).', a: '<strong>Answer:</strong> Primary: genetic (Milroy, Meige). Secondary: surgery, radiation, filariasis, trauma, obesity.' },
-            { sec: 'clinical', q: 'Stages of lymphedema (ISL).', a: '<strong>Answer:</strong> 0 (latent), I (reversible pitting), II (irreversible, fibrosis), III (elephantiasis).' },
-            { sec: 'clinical', q: 'What is Stemmer sign?', a: '<strong>Answer:</strong> Inability to pinch dorsal foot/toe skin – pathognomonic for lymphedema.' },
-            { sec: 'clinical', q: 'Most frequent secondary lymphedema in developed world?', a: '<strong>Answer:</strong> Breast cancer treatment (axillary dissection/radiation).' },
-            { sec: 'clinical', q: 'Lymphatic filariasis causative agent.', a: '<strong>Answer:</strong> Wuchereria bancrofti (nematode) transmitted by mosquitoes.' },
-            { sec: 'clinical', q: 'Clinical features of lymphedema.', a: '<strong>Answer:</strong> Unilateral swelling, Stemmer sign, non‑pitting, skin thickening, recurrent cellulitis.' },
-            { sec: 'clinical', q: 'Define lymphadenopathy.', a: '<strong>Answer:</strong> Abnormal size/consistency of lymph nodes.' },
-            { sec: 'clinical', q: 'Common causes of lymphadenopathy.', a: '<strong>Answer:</strong> Infections (viral/bacterial), malignancy, autoimmune (SLE, RA), drugs.' },
-            { sec: 'clinical', q: 'Lymphadenitis vs lymphadenopathy.', a: '<strong>Answer:</strong> Lymphadenitis = inflamed (tender, bacterial). Lymphadenopathy = any enlargement.' },
-            { sec: 'clinical', q: 'What is lymphangitis?', a: '<strong>Answer:</strong> Inflammation of lymphatic vessels (red streaks).' },
-            { sec: 'clinical', q: 'Conservative management of lymphedema.', a: '<strong>Answer:</strong> Complex decongestive physiotherapy (MLD, compression, exercise, skin care).' },
-            { sec: 'clinical', q: 'What is lymphoscintigraphy?', a: '<strong>Answer:</strong> Nuclear imaging (Tc‑99m colloid) – gold standard for lymphedema and sentinel node biopsy.' },
-            { sec: 'clinical', q: 'What is sentinel lymph node?', a: '<strong>Answer:</strong> First node draining a tumor; biopsy reveals metastasis.' },
-            { sec: 'clinical', q: 'Name cancers that frequently spread lymphatically.', a: '<strong>Answer:</strong> Breast, melanoma, lung, GI, prostate.' },
-            { sec: 'clinical', q: 'What is chylothorax?', a: '<strong>Answer:</strong> Chyle in pleural space (thoracic duct injury).' },
-            { sec: 'clinical', q: 'What is Virchow’s node?', a: '<strong>Answer:</strong> Left supraclavicular node; may signal gastric/lung cancer (drained by thoracic duct).' },
-            { sec: 'clinical', q: 'What is cat‑scratch lymphadenitis?', a: '<strong>Answer:</strong> Bartonella henselae infection after cat scratch; regional lymphadenopathy.' },
-            { sec: 'clinical', q: 'What is Castleman disease?', a: '<strong>Answer:</strong> Rare lymphoproliferative disorder; giant lymph node hyperplasia.' },
-            { sec: 'clinical', q: 'Post‑axillary dissection prophylaxis.', a: '<strong>Answer:</strong> Avoid BP/IV on affected arm, skin protection, early recognition of swelling.' }
-        ];
-
-        // Ensure exactly 100 (we built 100)
-        const qList = questions.slice(0,100);
-
-        // render function
-        const container = document.getElementById('questionsContainer');
-        const searchInput = document.getElementById('search');
-        const tabs = document.querySelectorAll('.tab');
-
-        let currentSec = 'all';
-        let searchTerm = '';
-
-        function render() {
-            const filtered = qList.filter((q, idx) => {
-                const sectionMatch = currentSec === 'all' || q.sec === currentSec;
-                const textMatch = searchTerm === '' ||
-                    q.q.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    q.a.toLowerCase().includes(searchTerm.toLowerCase());
-                return sectionMatch && textMatch;
-            });
-
-            let html = '';
-            filtered.forEach((item) => {
-                const origIdx = qList.indexOf(item);
-                html += `
-                    <div class="q-card" data-index="${origIdx}">
-                        <div class="q-header">
-                            <span class="num">${origIdx+1}</span>
-                            <span class="q-text">${item.q}</span>
-                            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                        </div>
-                        <div class="answer-box" id="ans-${origIdx}">
-                            <div class="answer-inner">${item.a}</div>
-                        </div>
-                    </div>
-                `;
-            });
-
-            if (filtered.length === 0) {
-                html = '<div style="background: white; border-radius: 40px; padding: 3rem; text-align: center;">🤷 No matches</div>';
-            }
-            container.innerHTML = html;
-
-            // attach click toggles
-            document.querySelectorAll('.q-card').forEach(card => {
-                const header = card.querySelector('.q-header');
-                const ansDiv = card.querySelector('.answer-box');
-                const icon = card.querySelector('.fa-chevron-down');
-                header.addEventListener('click', () => {
-                    ansDiv.classList.toggle('show');
-                    icon.classList.toggle('rotated');
-                });
-            });
-        }
-
-        // tab events
-        tabs.forEach(t => {
-            t.addEventListener('click', () => {
-                tabs.forEach(tab => tab.classList.remove('active'));
-                t.classList.add('active');
-                currentSec = t.dataset.sec;
-                render();
-            });
-        });
-
-        // search
-        searchInput.addEventListener('input', (e) => {
-            searchTerm = e.target.value;
-            render();
-        });
-
-        render();
-    })();
-</script>
 </body>
 </html>
