@@ -1,1 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lipids · 50 MCQs + 20 short answer · Brian</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(145deg, #fbe9f0 0%, #e2f1fa 100%);
+            color: #103b4f;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 3.5rem 3.5rem 2rem 2rem;
+            box-shadow: 0 25px 45px -18px #2d4f6b;
+            padding: 2.5rem 2rem 3rem;
+            border: 2px solid #ffffff88;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            background: #ffdab9;    /* peach */
+            padding: 2rem 2rem 1.5rem;
+            border-radius: 4rem 4rem 2rem 2rem;
+            border: 3px solid #fa9e8c;
+        }
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #c23b22, #cc6b2c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 0 #ffe5d0;
+        }
+        .subhead {
+            font-size: 1.6rem;
+            font-style: italic;
+            background: #2f9e7a;
+            color: white;
+            display: inline-block;
+            padding: 0.3rem 2.5rem;
+            border-radius: 60px;
+            margin: 0.8rem 0 0.2rem;
+            border: 2px solid #ffcc99;
+        }
+        .subhead span {
+            font-weight: 300;
+            background: #ffebb5;
+            color: #1b4e3d;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            margin-left: 10px;
+        }
+        .section-tab {
+            display: flex;
+            gap: 1rem;
+            margin: 2.5rem 0 1.5rem;
+        }
+        .tab-btn {
+            flex: 1;
+            background: #ffe3d5;
+            border: 3px solid #ffa56e;
+            padding: 1.2rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-radius: 60px;
+            color: #a1431b;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+            box-shadow: 0 5px 0 #be713b;
+        }
+        .tab-btn.active {
+            background: #ff8a6f;
+            color: white;
+            border-color: #b12c0d;
+            box-shadow: 0 8px 0 #731f08;
+            transform: translateY(-2px);
+        }
+        .qa-panel {
+            display: none;
+            animation: fade 0.3s ease;
+        }
+        .qa-panel.active-panel {
+            display: block;
+        }
+        @keyframes fade { from {opacity:0;} to {opacity:1;} }
 
+        .qa-block {
+            background: #fef9f2;
+            border-left: 12px solid #4f9da6;
+            border-radius: 2rem 2rem 2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 18px -10px #b5cfda;
+            transition: 0.2s;
+            border-right: 2px solid #ffd3b0;
+        }
+        .qa-block.mcq-block {
+            border-left-color: #e07936;
+        }
+        .qa-block.struct-block {
+            border-left-color: #2b7a62;
+        }
+        .question {
+            background: #fffbee;
+            padding: 1.5rem 2rem 1rem;
+            font-weight: 600;
+            font-size: 1.25rem;
+            border-radius: 2rem 2rem 0 0;
+            color: #003153;
+        }
+        .choices {
+            background: #fef3e4;
+            padding: 0.8rem 2rem 1.2rem;
+            font-family: 'Courier New', monospace;
+            border-bottom: 2px dashed #faaa7c;
+        }
+        .choices p {
+            margin: 0.3rem 0;
+        }
+        .answer-box {
+            padding: 0rem 2rem 1.8rem 2rem;
+            background: #fff9f5;
+            border-radius: 0 0 2rem 2rem;
+        }
+        .hidden-answer {
+            background: #e9f2f5;
+            padding: 1.2rem 1.5rem;
+            border-radius: 28px;
+            margin-top: 1rem;
+            border-left: 6px solid #00a1ab;
+            font-size: 1.1rem;
+            display: none;
+            color: #024d5c;
+        }
+        .show-btn {
+            background: #ffb347;
+            border: none;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #2f2f2f;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #b2620f;
+            transition: 0.1s;
+            border: 1px solid white;
+        }
+        .show-btn:hover {
+            background: #f07f1f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #9b4f0a;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 3.5rem;
+            background: #d2ebd0;
+            padding: 1rem;
+            border-radius: 60px;
+            color: #1c5f4b;
+        }
+        .back2top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #258f8f;
+            color: white;
+            border-radius: 40px;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #ffc27a;
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="top">
+    <div class="header">
+        <h1>🧪 LIPIDS · 50 MCQs + 20 SHORT ANSWER</h1>
+        <div class="subhead">Regards Brian <span>🍏 full question bank</span></div>
+        <p style="margin-top: 1rem; color: #3f2b1c; font-size: 1.2rem;">MCQs with all choices · click to reveal answer & explanation</p>
+    </div>
+
+    <!-- section tabs -->
+    <div class="section-tab">
+        <div class="tab-btn active" id="tabMcq">📋 MULTIPLE CHOICE (50)</div>
+        <div class="tab-btn" id="tabStruct">📝 SHORT ANSWER (20)</div>
+    </div>
+
+    <!-- MCQ PANEL (50) -->
+    <div id="mcqPanel" class="qa-panel active-panel"></div>
+
+    <!-- SHORT ANSWER PANEL (20) -->
+    <div id="structPanel" class="qa-panel"></div>
+
+    <div class="footer">
+        ⚡ all questions from lecture 4 · expanded MCQs to 50 · complete set ⚡
+    </div>
+    <a href="#top" class="back2top">↑ back to top</a>
+</div>
+
+<script>
+(function() {
+    // ---------- 50 MCQs (with full choices) ----------
+    const mcqList = [
+        { q: 'Which solvent best dissolves lipids?', choices: ['A) Water', 'B) Ethanol', 'C) Chloroform', 'D) Acetic acid'], correct: 'C) Chloroform', exp: 'Lipids are hydrophobic, soluble in organic solvents like chloroform.' },
+        { q: 'Which is NOT a characteristic of lipids?', choices: ['A) Insoluble in water', 'B) Soluble in organic solvents', 'C) All solid at RT', 'D) Hydrophobic regions'], correct: 'C) All solid at RT', exp: 'Fats solid, oils liquid at RT.' },
+        { q: 'Simplest lipids building blocks?', choices: ['A) Steroids', 'B) Phospholipids', 'C) Fatty acids', 'D) Sphingolipids'], correct: 'C) Fatty acids', exp: 'Fatty acids are fundamental building blocks.' },
+        { q: 'Triacylglycerols are classified as?', choices: ['A) Complex lipids', 'B) Simple lipids', 'C) Sterols', 'D) Sphingolipids'], correct: 'B) Simple lipids', exp: 'Esters of fatty acids + glycerol.' },
+        { q: 'Four‑ring lipid class?', choices: ['A) Phospholipids', 'B) Fatty acids', 'C) Steroids', 'D) Sphingolipids'], correct: 'C) Steroids', exp: 'Steroids have three cyclohexane + one cyclopentane ring.' },
+        { q: 'Saturated vs unsaturated difference?', choices: ['A) Have double bonds', 'B) Liquid at RT', 'C) No double bonds', 'D) Only plant origin'], correct: 'C) No double bonds', exp: 'Saturated: all single bonds.' },
+        { q: 'Example of saturated fatty acid?', choices: ['A) Oleic', 'B) Linoleic', 'C) Palmitic', 'D) Arachidonic'], correct: 'C) Palmitic', exp: 'Palmitic 16:0, no double bonds.' },
+        { q: 'Double bonds in unsaturated FA cause?', choices: ['A) Higher melting point', 'B) Straight chains', 'C) Kinks/bends', 'D) Solid at RT'], correct: 'C) Kinks/bends', exp: 'Kinks prevent tight packing, lower melting point.' },
+        { q: 'Omega‑3 first double bond location?', choices: ['A) 3rd from carboxyl', 'B) 3rd from methyl', 'C) 6th from carboxyl', 'D) 6th from methyl'], correct: 'B) 3rd from methyl', exp: 'ω numbering from methyl end.' },
+        { q: 'Essential fatty acid?', choices: ['A) Palmitic', 'B) Stearic', 'C) Linoleic', 'D) Oleic'], correct: 'C) Linoleic', exp: 'Linoleic (ω‑6) cannot be synthesised.' },
+        { q: 'Trans fats created by?', choices: ['A) Esterification', 'B) Saponification', 'C) Hydrogenation', 'D) Oxidation'], correct: 'C) Hydrogenation', exp: 'Partial hydrogenation produces trans.' },
+        { q: 'Correct statement about cis/trans?', choices: ['A) Trans natural & healthy', 'B) Cis H opposite', 'C) Trans ↑LDL ↓HDL', 'D) Cis always artificial'], correct: 'C) Trans ↑LDL ↓HDL', exp: 'Trans harmful to lipid profile.' },
+        { q: 'Simple lipid solid at RT?', choices: ['A) Oils', 'B) Waxes', 'C) Fats', 'D) Phospholipids'], correct: 'C) Fats', exp: 'Fats contain mostly saturated FA.' },
+        { q: 'Waxes are esters of?', choices: ['A) Glycerol + FA', 'B) Long‑chain FA + long‑chain alcohol', 'C) Sphingosine + FA', 'D) Glycerol + phosphate'], correct: 'B) Long‑chain FA + long‑chain alcohol', exp: 'Waxes = long FA + long alcohol.' },
+        { q: 'Primary plant wax function?', choices: ['A) Energy storage', 'B) Membrane structure', 'C) Protective barrier', 'D) Hormone synthesis'], correct: 'C) Protective barrier', exp: 'Waxes prevent water loss & pathogens.' },
+        { q: 'Phospholipids amphipathic means?', choices: ['A) Soluble in water & organics', 'B) Hydrophilic & hydrophobic regions', 'C) Contain glycerol & FA', 'D) Found in plants & animals'], correct: 'B) Hydrophilic & hydrophobic regions', exp: 'Heads hydrophilic, tails hydrophobic.' },
+        { q: 'Most abundant phospholipid in membranes?', choices: ['A) Phosphatidylinositol', 'B) Phosphatidylserine', 'C) Phosphatidylcholine', 'D) Sphingomyelin'], correct: 'C) Phosphatidylcholine', exp: 'Lecithin is most abundant.' },
+        { q: 'Phosphatidylinositol role?', choices: ['A) Energy store', 'B) Second messenger signaling', 'C) Myelin insulation', 'D) Membrane fluidity'], correct: 'B) Second messenger signaling', exp: 'Participates in intracellular signaling.' },
+        { q: 'Sphingolipid core structure?', choices: ['A) Glycerol', 'B) Sphingosine', 'C) Cholesterol', 'D) Fatty acid'], correct: 'B) Sphingosine', exp: 'Sphingosine base backbone.' },
+        { q: 'Ceramide formed by?', choices: ['A) Glycerol + 3 FA', 'B) Sphingosine + FA (amide)', 'C) Glycerol + phosphate', 'D) Hydrogenation'], correct: 'B) Sphingosine + FA (amide)', exp: 'Ceramide simplest sphingolipid.' },
+        { q: 'Myelin sheath abundant sphingolipid?', choices: ['A) Cerebroside', 'B) Ganglioside', 'C) Sphingomyelin', 'D) Ceramide'], correct: 'C) Sphingomyelin', exp: 'Sphingomyelin insulates nerve fibers.' },
+        { q: 'Sialic‑acid containing glycosphingolipid?', choices: ['A) Cerebrosides', 'B) Gangliosides', 'C) Sphingomyelins', 'D) Ceramides'], correct: 'B) Gangliosides', exp: 'Gangliosides have oligosaccharide with sialic acid.' },
+        { q: 'Sphingolipids membrane rigidity reason?', choices: ['A) Unsaturated FA', 'B) Short chains', 'C) Saturated FA high melting point', 'D) Water soluble'], correct: 'C) Saturated FA high melting point', exp: 'Saturated chains pack tightly.' },
+        { q: 'Lipoprotein from intestine after fat meal?', choices: ['A) VLDL', 'B) LDL', 'C) HDL', 'D) Chylomicrons'], correct: 'D) Chylomicrons', exp: 'Chylomicrons transport dietary fat.' },
+        { q: '"Bad cholesterol" lipoprotein?', choices: ['A) HDL', 'B) LDL', 'C) VLDL', 'D) Chylomicrons'], correct: 'B) LDL', exp: 'High LDL = cardiovascular risk.' },
+        { q: 'Primary HDL function?', choices: ['A) Transport dietary TG', 'B) Deliver cholesterol to tissues', 'C) Remove excess cholesterol to liver', 'D) Transport endogenous TG'], correct: 'C) Remove excess cholesterol to liver', exp: 'Reverse cholesterol transport.' },
+        { q: 'VLDL transports?', choices: ['A) Dietary TG', 'B) Endogenous TG & cholesterol from liver', 'C) Cholesterol to liver', 'D) Fat‑soluble vitamins'], correct: 'B) Endogenous TG & cholesterol from liver', exp: 'VLDL carries liver‑synthesised lipids.' },
+        { q: 'Most well‑known steroid?', choices: ['A) Estrogen', 'B) Testosterone', 'C) Cholesterol', 'D) Cortisol'], correct: 'C) Cholesterol', exp: 'Cholesterol is precursor for others.' },
+        { q: 'Cholesterol precursor for all EXCEPT?', choices: ['A) Steroid hormones', 'B) Bile acids', 'C) Vitamin D', 'D) Phospholipids'], correct: 'D) Phospholipids', exp: 'Phospholipids not derived from cholesterol.' },
+        { q: 'Cholesterol role in membranes?', choices: ['A) Primary barrier', 'B) Maintain fluidity/stability', 'C) Transport molecules', 'D) Signaling'], correct: 'B) Maintain fluidity/stability', exp: 'Modulates membrane permeability.' },
+        { q: 'Energy per gram lipids vs carbs?', choices: ['A) Less', 'B) More', 'C) Same', 'D) No energy'], correct: 'B) More', exp: 'Lipids ~9 kcal/g, carbs ~4 kcal/g.' },
+        { q: 'Eicosanoids function?', choices: ['A) Energy storage', 'B) Structural', 'C) Signaling (inflammation/clotting)', 'D) Transport'], correct: 'C) Signaling (inflammation/clotting)', exp: 'Prostaglandins, thromboxanes etc.' },
+        { q: 'Fat‑soluble vitamins?', choices: ['A) C, B‑complex', 'B) A, D, E, K', 'C) B1, B6, B12', 'D) C and D'], correct: 'B) A, D, E, K', exp: 'They need lipids for absorption.' },
+        // 17 additional MCQs to reach 50
+        { q: 'Which lipoprotein has highest density?', choices: ['A) Chylomicrons', 'B) VLDL', 'C) LDL', 'D) HDL'], correct: 'D) HDL', exp: 'HDL = high density, protein-rich.' },
+        { q: 'Main storage form of fatty acids in adipose?', choices: ['A) Free fatty acids', 'B) Triacylglycerols', 'C) Cholesterol esters', 'D) Phospholipids'], correct: 'B) Triacylglycerols', exp: 'TAG stored in adipocytes.' },
+        { q: 'Glycerophospholipids contain?', choices: ['A) Sphingosine', 'B) Glycerol + 2 FA + phosphate', 'C) Four rings', 'D) Long chain alcohol'], correct: 'B) Glycerol + 2 FA + phosphate', exp: 'Phosphoglycerides = glycerol backbone.' },
+        { q: 'Which eicosanoid involved in inflammation?', choices: ['A) Thromboxane', 'B) Prostaglandin', 'C) Leukotriene', 'D) All of the above'], correct: 'D) All of the above', exp: 'Eicosanoids regulate inflammation.' },
+        { q: 'Arachidonic acid is precursor for?', choices: ['A) Eicosanoids', 'B) Bile acids', 'C) Vitamin D', 'D) Steroids'], correct: 'A) Eicosanoids', exp: 'Arachidonic acid (20:4 ω‑6) → eicosanoids.' },
+        { q: 'Which lipid acts as surfactant in lungs?', choices: ['A) Phosphatidylcholine (DPPC)', 'B) Sphingomyelin', 'C) Ganglioside', 'D) Cholesterol'], correct: 'A) Phosphatidylcholine (DPPC)', exp: 'Dipalmitoylphosphatidylcholine reduces surface tension.' },
+        { q: 'Steroid hormone derived from cholesterol?', choices: ['A) Insulin', 'B) Glucagon', 'C) Testosterone', 'D) Thyroxine'], correct: 'C) Testosterone', exp: 'Testosterone is a steroid hormone.' },
+        { q: 'Which lipoprotein delivers cholesterol to liver?', choices: ['A) LDL', 'B) HDL', 'C) VLDL', 'D) Chylomicrons'], correct: 'B) HDL', exp: 'HDL carries cholesterol from tissues to liver.' },
+        { q: 'Membrane lipid rafts enriched in?', choices: ['A) Sphingolipids & cholesterol', 'B) Triacylglycerols', 'C) Free fatty acids', 'D) Waxes'], correct: 'A) Sphingolipids & cholesterol', exp: 'Lipid rafts are specialized microdomains.' },
+        { q: 'Which fatty acid is monounsaturated?', choices: ['A) Palmitic', 'B) Stearic', 'C) Oleic', 'D) Linoleic'], correct: 'C) Oleic', exp: 'Oleic acid 18:1 (ω‑9).' },
+        { q: 'Which condition linked to high LDL?', choices: ['A) Diabetes', 'B) Hypertension', 'C) Atherosclerosis', 'D) Anemia'], correct: 'C) Atherosclerosis', exp: 'High LDL promotes plaque formation.' },
+        { q: 'The amide bond in sphingolipids is between?', choices: ['A) Glycerol and FA', 'B) Sphingosine and FA', 'C) Sphingosine and phosphate', 'D) FA and alcohol'], correct: 'B) Sphingosine and FA', exp: 'Ceramide formed by amide bond.' },
+        { q: 'Cerebrosides contain which head group?', choices: ['A) Phosphocholine', 'B) Single sugar (glucose/galactose)', 'C) Oligosaccharide with sialic acid', 'D) Amino acid'], correct: 'B) Single sugar (glucose/galactose)', exp: 'Cerebrosides = simple glycosphingolipid.' },
+        { q: 'Omega‑6 first double bond at carbon?', choices: ['A) 3 from methyl', 'B) 6 from methyl', 'C) 3 from carboxyl', 'D) 6 from carboxyl'], correct: 'B) 6 from methyl', exp: 'ω‑6: first double bond at C6 from methyl end.' },
+        { q: 'Which fat increases HDL most?', choices: ['A) Saturated fat', 'B) Trans fat', 'C) Monounsaturated fat', 'D) Cholesterol'], correct: 'C) Monounsaturated fat', exp: 'MUFA (olive oil) beneficial for HDL.' },
+        { q: 'Main bile acid precursor?', choices: ['A) Estrogen', 'B) Testosterone', 'C) Cholesterol', 'D) Phospholipid'], correct: 'C) Cholesterol', exp: 'Bile acids synthesised from cholesterol.' },
+        { q: 'Vitamin D synthesis from?', choices: ['A) 7‑dehydrocholesterol', 'B) Ergosterol', 'C) Linoleic acid', 'D) Ceramide'], correct: 'A) 7‑dehydrocholesterol', exp: 'Derived from cholesterol, UV converts to vitamin D.' }
+    ];
+
+    // ---------- 20 short answer items ----------
+    const structList = [
+        { q: 'Q1: List and briefly describe the four main categories of lipids with examples.', a: '<strong>Answer:</strong> 1) Fatty acids (palmitic); 2) Simple lipids (triglycerides, waxes); 3) Complex lipids (phospholipids, sphingolipids); 4) Sterols (cholesterol).' },
+        { q: 'Q2: Compare and contrast saturated and unsaturated fatty acids.', a: '<strong>Answer:</strong> Saturated: no double bonds, straight, solid, high melting, ↑LDL. Unsaturated: one/more double bonds → kinks, liquid, low melting, ↓LDL, anti‑inflammatory.' },
+        { q: 'Q3: Describe phospholipid structure and how amphipathic nature enables bilayer formation.', a: '<strong>Answer:</strong> Glycerol + 2 fatty acids + phosphate + polar head. Hydrophilic heads face water, hydrophobic tails inward → spontaneous bilayer.' },
+        { q: 'Q4: Describe structure, types and functions of sphingolipids.', a: '<strong>Answer:</strong> Sphingosine + fatty acid (amide) = ceramide. Types: sphingomyelin (myelin), cerebrosides (sugar), gangliosides. Functions: lipid rafts, signaling, recognition, skin barrier.' },
+        { q: 'Q5: List four major lipoproteins, their origin and function.', a: '<strong>Answer:</strong> Chylomicrons (intestine, dietary TG); VLDL (liver, endogenous TG); LDL (from VLDL, cholesterol to tissues, “bad”); HDL (reverse cholesterol transport, “good”).' },
+        { q: 'Q6: Discuss structure and multiple functions of cholesterol.', a: '<strong>Answer:</strong> Four‑ring steroid. Functions: membrane fluidity, precursor for steroid hormones, bile acids, vitamin D.' },
+        { q: 'Q7: What are essential fatty acids? Name two main types and their physiological significance.', a: '<strong>Answer:</strong> Cannot be synthesized: linoleic (ω‑6), α‑linolenic (ω‑3). Significance: precursors for eicosanoids, membrane structure, brain health.' },
+        { q: 'Q8: Differentiate cis vs trans fatty acids. Why are trans fats harmful?', a: '<strong>Answer:</strong> Cis: H same side, bent, natural. Trans: H opposite, straight, artificial (hydrogenation). Harms: ↑LDL, ↓HDL, inflammation, insulin resistance, CVD.' },
+        { q: 'Q9: Describe structure, properties, functions of waxes in plants/animals.', a: '<strong>Answer:</strong> Long‑chain FA + long‑chain alcohol esters. High melting point, waterproof. Plants: cuticle prevents water loss; animals: skin/feather coating (beeswax, lanolin).' },
+        { q: 'Q10: Discuss six major functions of lipids in biological systems.', a: '<strong>Answer:</strong> 1) Energy storage; 2) Structural; 3) Insulation/protection; 4) Signaling; 5) Absorption/transport; 6) Hormone production.' },
+        { q: 'Q11: Describe triglyceride formation (esterification).', a: '<strong>Answer:</strong> Glycerol + 3 fatty acids → ester bonds + 3 H₂O → triacylglycerol.' },
+        { q: 'Q12: Explain lipid bilayer formation from phospholipids.', a: '<strong>Answer:</strong> Amphipathic phospholipids in water: hydrophilic heads face water, hydrophobic tails associate inward → bilayer.' },
+        { q: 'Q13: Label components of sphingolipid from diagram.', a: '<strong>Answer:</strong> Sphingosine backbone + fatty acid (amide link) = ceramide. Head group (phosphocholine/sugar) attached to C1.' },
+        { q: 'Q14: Explain relationship between lipoproteins and CVD risk. Why LDL “bad”, HDL “good”?', a: '<strong>Answer:</strong> LDL delivers cholesterol to tissues; oxidized LDL promotes plaque. HDL removes cholesterol from periphery → liver.' },
+        { q: 'Q15: Why have trans fats been banned? Biochemical basis.', a: '<strong>Answer:</strong> ↑LDL, ↓HDL, inflammation, endothelial dysfunction, insulin resistance → increased CVD, no health benefit.' },
+        { q: 'Q16: Discuss health benefits of omega‑3 fatty acids.', a: '<strong>Answer:</strong> Anti‑inflammatory, ↓TG, ↓BP, brain development (DHA), essential from diet (fish, flax).' },
+        { q: 'Q17: Comprehensive classification of lipids.', a: '<strong>Answer:</strong> Tree: fatty acids → simple (fats, oils, waxes) → complex (phospholipids, sphingolipids) → sterols (cholesterol, hormones).' },
+        { q: 'Q18: Compare phospholipids and sphingolipids.', a: '<strong>Answer:</strong> Phospholipids: glycerol backbone, ester bonds, both leaflets; sphingolipids: sphingosine, amide bond, outer leaflet, rafts, saturated → rigid.' },
+        { q: 'Q19: Describe journey of dietary fat from ingestion to utilization.', a: '<strong>Answer:</strong> Intestine (bile, lipase) → chylomicrons → lymph → blood → LPL releases FA to tissues → remnants to liver → VLDL, LDL, HDL reverse transport.' },
+        { q: 'Q20: Discuss health implications of dietary fats and recommendations.', a: '<strong>Answer:</strong> Limit sat (<10% cal), avoid trans, emphasise MUFA/PUFA, omega‑3, balance ω‑3:ω‑6 ≈1:4, Mediterranean pattern.' }
+    ];
+
+    // render MCQ panel (50)
+    function renderMCQ() {
+        let html = '';
+        mcqList.forEach((item, idx) => {
+            html += `<div class="qa-block mcq-block" id="mcq${idx}">`;
+            html += `<div class="question">${idx+1}. ${item.q}</div>`;
+            html += `<div class="choices">`;
+            item.choices.forEach(ch => html += `<p>${ch}</p>`);
+            html += `</div>`;
+            html += `<div class="answer-box">`;
+            html += `<button class="show-btn" onclick="toggleAnswer('ansMcq${idx}')">🔎 Show answer</button>`;
+            html += `<div id="ansMcq${idx}" class="hidden-answer"><strong>✅ Correct: ${item.correct}</strong><br>💡 ${item.exp}</div>`;
+            html += `</div></div>`;
+        });
+        document.getElementById('mcqPanel').innerHTML = html;
+    }
+
+    // render short answer panel (20)
+    function renderStruct() {
+        let html = '';
+        structList.forEach((item, idx) => {
+            html += `<div class="qa-block struct-block" id="struct${idx}">`;
+            html += `<div class="question">${item.q}</div>`;
+            html += `<div class="answer-box">`;
+            html += `<button class="show-btn" onclick="toggleAnswer('ansStruct${idx}')">📘 Show answer</button>`;
+            html += `<div id="ansStruct${idx}" class="hidden-answer">${item.a}</div>`;
+            html += `</div></div>`;
+        });
+        document.getElementById('structPanel').innerHTML = html;
+    }
+
+    window.toggleAnswer = function(id) {
+        const el = document.getElementById(id);
+        el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
+    };
+
+    // tab switching
+    const tabMcq = document.getElementById('tabMcq');
+    const tabStruct = document.getElementById('tabStruct');
+    const mcqPanel = document.getElementById('mcqPanel');
+    const structPanel = document.getElementById('structPanel');
+
+    tabMcq.addEventListener('click', () => {
+        tabMcq.classList.add('active');
+        tabStruct.classList.remove('active');
+        mcqPanel.classList.add('active-panel');
+        structPanel.classList.remove('active-panel');
+    });
+    tabStruct.addEventListener('click', () => {
+        tabStruct.classList.add('active');
+        tabMcq.classList.remove('active');
+        structPanel.classList.add('active-panel');
+        mcqPanel.classList.remove('active-panel');
+    });
+
+    renderMCQ();
+    renderStruct();
+})();
+</script>
+</body>
+</html>
